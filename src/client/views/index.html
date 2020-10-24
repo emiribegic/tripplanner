@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+    <head>
+        <meta charset="utf-8">
+        <title>tripplanner</title>
+        <link href="https://fonts.googleapis.com/css2?&family=Roboto:wght@300;500;700&family=Roboto+Slab:wght@300;400;700;800&display=swap" rel="stylesheet">
+        <script src="https://kit.fontawesome.com/1aac26dbd0.js" crossorigin="anonymous"></script>
+    </head>
+
+    <body>
+        <header>
+            <h1>
+               tripplanner
+            </h1>
+        </header>
+
+        <main>
+            <p>Plan and manage your trips smarter.</p>
+            <section>
+                <form class="" onsubmit="return Client.handleSubmit(event)">
+                    <input id="city" type="text" name="city" placeholder="Where to (e.g. Paris, Tokyo, New York)">
+                    
+                    <label for="start">Start:</label>
+                    <input type="date" id="start" name="start" required>
+                    <label for="end">End:</label>
+                    <input type="date" id="end" name="end" required>
+                    
+                    <input type="submit" name="submit" value="Start planning" onclick="return Client.handleSubmit(event)" onsubmit="return handleSubmit(event)">
+                </form>
+                </section>
+            
+            <div id="container"></div>
+            
+        </main>
+
+        <footer>
+            <nav class="fnav">
+                <ul>
+                    <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+                    <li><a href="https://github.com/emiribegic" target="_blank"><i class="fab fa-github-square"></i></a></li>
+                    <li><a href="#"><i class="fab fa-instagram-square"></i></a></li>
+                    <li><a href="#"><i class="fab fa-facebook-square"></i></a></li>
+                </ul>
+                <div class="copyright">© 2020</div>
+            </nav>
+        </footer>
+
+    </body>
+</html>

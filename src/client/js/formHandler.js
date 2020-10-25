@@ -82,7 +82,7 @@ async function handleSubmit(event) {
         console.log('error', error);
     }
 
-    console.log('Fetching a pic from pixabay:', {city: receivedWeatherInJson.city_name});
+    console.log('Fetching a pic from pixabay:', {cityLatLon});
 
     // これはcityLatLonをjson形式でserverに送るアクション
     const resPic = await fetch('http://localhost:8081/pic', {
@@ -92,7 +92,7 @@ async function handleSubmit(event) {
         headers: {
         'Content-Type': 'application/json',
         },
-        body: JSON.stringify({city: receivedWeatherInJson.city_name})
+        body: JSON.stringify(cityLatLon)
     });
     try {
         receivedPicInJson = await resPic.json();

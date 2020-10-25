@@ -1,4 +1,4 @@
-$keycolor: rgb(253, 148, 192);
+$keycolor: rgb(247, 125, 25);
 $defaultfont: 300 1rem "Roboto Slab", serif;
 
 body {
@@ -6,7 +6,7 @@ body {
     justify-content: center;
     flex-direction: column;
     min-height: 100vh;
-    background: center / cover no-repeat url(../img/bgimg.jpg) fixed;
+    background: center / cover no-repeat url(../media/bgimg.jpg) fixed;
 }
 
 main {
@@ -19,13 +19,15 @@ main {
 
 p {
     margin: 1rem;
+    text-decoration: underline;
+    
 }
 
 
 section {
     max-width: 800px;
     margin: 1rem auto;
-    background: rgba(238, 234, 234, 0.7);
+    background: rgba(238, 234, 234, 0.8);
 
 
     h2 {
@@ -36,21 +38,45 @@ section {
 }
 
 
-// check if this works for the small screen
 form {
-     border: 1px solid #545454;
-     border-radius: 3px;
+     border: none;
      padding: 0 2rem 2rem;
 }
+
 
 input {
     padding: 5px 20px;
     width: 100%;
     margin: 10px 0;
     font: $defaultfont;
-    
 }
 
+
+#trip {
+    text-align: center;
+    padding: 2rem;
+
+
+    #dest_img {
+        
+        img {
+            width: 100%;
+            max-height: 500px;
+            object-fit: cover;
+        }
+    }
+
+    #destination {
+        h3 {
+            font-size: 1.5rem;
+            font-weight: 400;
+        }
+    }
+}
+
+#card {
+    margin: 1rem 0;
+}
 
 a:link,
 a:visited {
@@ -77,6 +103,10 @@ a:hover {
         margin: 10px 0;
         font: $defaultfont;
         
+    }
+
+    p {
+        text-decoration: none;
     }
 
     #trip {
@@ -141,6 +171,10 @@ a:hover {
         gap: 1em;
     }
 
+    p {
+        text-decoration: none;
+    }
+
 
     section {
         max-width: 1000px;
@@ -176,8 +210,6 @@ a:hover {
         display: grid;
         grid-template-columns: repeat(6, 1fr);
         grid-template-rows: 3rem 3rem 3rem 3rem 6rem 6rem;
-        // align-items: center;
-        // gap: 1em;
         grid-column-gap: 0.5rem;
         border: 1px solid #545454;
         border-radius: 3px;
@@ -235,11 +267,4 @@ a:hover {
             justify-content: space-between;
         }
     }
-
-
-    // #card {
-    //     background: #fff;
-    //     border: 1px solid #545454;
-    //     border-radius: 3px;
-    // }
 }

@@ -56,7 +56,7 @@ module.exports = {
         }),
         new CopyPlugin({
             patterns: [
-              { from: './src/client/img', to: './img' }
+              { from: './src/client/media', to: './media' }
             ]
         }),
         new MiniCssExtractPlugin({ filename: "[name].css" })

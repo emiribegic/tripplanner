@@ -59,7 +59,7 @@ module.exports = {
         new CopyPlugin({
             patterns: [
                 // copy images and make a img folder in dist for the reference
-              { from: './src/client/img', to: './img' }
+              { from: './src/client/media', to: './media' }
             ]
           })
     ]

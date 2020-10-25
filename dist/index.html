@@ -8,42 +8,44 @@
     <link href="main.css" rel="stylesheet"></head>
 
     <body>
-        <header>
-            <h1>
-               tripplanner
-            </h1>
-        </header>
+        <div id="container">
+            <header>
+                <h1>
+                    tripplanner
+                </h1>
+            </header>
 
-        <main>
-            <p>Plan and manage your trips smarter.</p>
-            <section>
-                <form class="" onsubmit="return Client.handleSubmit(event)">
-                    <input id="city" type="text" name="city" placeholder="Where to (e.g. Paris, Tokyo, New York)">
+            <main>
+            
+                <section id="entry">
+                    <h2>Plan and manage your trips smarter</h2>
+                    <form class="" onsubmit="return Client.handleSubmit(event)">
+                        <input id="city" type="text" name="city" placeholder="Where to (e.g. Paris, Tokyo, New York)">
                     
-                    <label for="start">Start:</label>
-                    <input type="date" id="start" name="start" required>
-                    <label for="end">End:</label>
-                    <input type="date" id="end" name="end" required>
+                        <label for="start">Start:</label>
+                        <input type="date" id="start" name="start" required>
+                        <label for="end">End:</label>
+                        <input type="date" id="end" name="end" required>
                     
-                    <input type="submit" name="submit" value="Start planning" onclick="return Client.handleSubmit(event)" onsubmit="return handleSubmit(event)">
-                </form>
+                        <input type="submit" name="submit" value="Start planning" onclick="return Client.handleSubmit(event)" onsubmit="return handleSubmit(event)">
+                    </form>
                 </section>
             
-            <div id="container"></div>
+                <!-- <section id="trip"></section> -->
             
-        </main>
+            </main>
 
-        <footer>
-            <nav class="fnav">
-                <ul>
-                    <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
-                    <li><a href="https://github.com/emiribegic" target="_blank"><i class="fab fa-github-square"></i></a></li>
-                    <li><a href="#"><i class="fab fa-instagram-square"></i></a></li>
-                    <li><a href="#"><i class="fab fa-facebook-square"></i></a></li>
-                </ul>
-                <div class="copyright">© 2020</div>
-            </nav>
-        </footer>
-
+            <footer>
+                <nav class="fnav">
+                    <ul>
+                        <li><a href="#"><i class="fab fa-linkedin"></i></a></li>
+                        <li><a href="https://github.com/emiribegic" target="_blank"><i class="fab fa-github-square"></i></a></li>
+                        <li><a href="#"><i class="fab fa-instagram-square"></i></a></li>
+                        <li><a href="#"><i class="fab fa-facebook-square"></i></a></li>
+                    </ul>
+                    <div class="copyright">© 2020</div>
+                </nav>
+            </footer>
+        </div>
     <script type="text/javascript" src="main.js"></script></body>
 </html>

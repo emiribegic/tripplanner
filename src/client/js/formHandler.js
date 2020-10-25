@@ -103,8 +103,13 @@ async function handleSubmit(event) {
         console.log('error', error);
     }
 
-    const tripData = document.getElementById('container')
+    const main = document.querySelector('main')
+    const tripData = document.createElement('section')
+    tripData.setAttribute('id', 'trip')
     tripData.innerHTML = Client.updateUI(dates, receivedPicInJson, cityLatLon, receivedWeatherInJson);
+    main.appendChild(tripData)
+    // const tripData = document.getElementById('trip')
+    // tripData.innerHTML = Client.updateUI(dates, receivedPicInJson, cityLatLon, receivedWeatherInJson);
 
 };
 

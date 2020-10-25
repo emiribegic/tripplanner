@@ -4,37 +4,40 @@ async function handleSubmit(event) {
     // check what text was put into the form field
     let cityName = document.getElementById('city').value
     
-    // countdown
+    // calculate how many days till trip departure
     // ref: https://www.geeksforgeeks.org/how-to-calculate-the-number-of-days-between-two-dates-in-javascript/
     // ref: https://www.w3resource.com/javascript/object-property-method/date.php
     let startDate = document.getElementById('start').value
     let endDate = document.getElementById('end').value
-    
     let today = new Date()
     let tripStart = new Date(startDate)
+    let tripEnd = new Date(endDate)
     let diffInTime = tripStart.getTime() - today.getTime()
     // rounded up to the nearest integer (ref: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/round)
     let diffInDays = Math.round(diffInTime / (1000*3600*24))
-
+    // put dates in object to be accessible from everywhere
     let dates = {startDate, endDate, diffInDays}
 
-    /** let countdown = (days) => {
-        let today = new Date()
-        let tripStart = new Date(startDate)
-    
-        let diffInTime = tripStart.getTime() - today.getTime()
-        // rounded up to the nearest integer (ref: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/round)
-        let diffInDays = Math.round(diffInTime / (1000*3600*24))
-        return days
-    } */
+    // alert if a user submit without entering values
+    if(cityName === "") {
+        alert('Please enter a city name.')
+        return
+    }
+
+    // check if a user enter a valid date
+    if(tripStart < today || tripEnd < tripStart) {
+        alert('Invalid date: either you select past date as start date or set end date earlier than start date.')
+        return
+    }
 
     console.log("::: Form Submitted :::")
-    console.log('Fetching geographical data from geonames:', { city: cityName });
-    
-    // to make each data be accessible from everywhere
+
+    // to make each fetched data be accessible from everywhere
     let cityLatLon = {}
     let receivedWeatherInJson = {}
     let receivedPicInJson = {}
+
+    console.log('Fetching geographical data from geonames:', { city: cityName });
     
     // これは{city: cityName}をjson形式でserverに送るアクション
     // url,の後ろはoption, how to send post to the client, using POST methodとか
@@ -103,13 +106,11 @@ async function handleSubmit(event) {
         console.log('error', error);
     }
 
-    const main = document.querySelector('main')
-    const tripData = document.createElement('section')
-    tripData.setAttribute('id', 'trip')
-    tripData.innerHTML = Client.updateUI(dates, receivedPicInJson, cityLatLon, receivedWeatherInJson);
-    main.appendChild(tripData)
-    // const tripData = document.getElementById('trip')
-    // tripData.innerHTML = Client.updateUI(dates, receivedPicInJson, cityLatLon, receivedWeatherInJson);
+const main = document.querySelector('main')
+const tripData = document.createElement('section')
+tripData.setAttribute('id', 'trip')
+tripData.innerHTML = Client.updateUI(dates, receivedPicInJson, cityLatLon, receivedWeatherInJson);
+main.appendChild(tripData)
 
 };
 

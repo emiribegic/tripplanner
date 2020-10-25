@@ -36,7 +36,7 @@ console.log(`Your username for geonames is ${process.env.USERNAME}`);
 app.post('/city', async function(req, res) {
     city = encodeURI(req.body.city); // sent in the body from client side as body: JSON.stringify({city: cityName})
     console.log(`Trip destination: ${req.body.city}`);
-    
+
     const fetchGeo = await fetch (`${geoBaseURL}=${city}&maxRows=1&username=${userName}`) // fetch data from API's endpoint
     const geoInJson = await fetchGeo.json() // transform it into json format
     res.send(geoInJson) // and send it to the client, ❓ can i also use res.json as same purpose as res.send?
@@ -53,7 +53,7 @@ app.post('/weather', async function(req, res) {
     lat = req.body.lat;
     lon = req.body.lon;
     console.log(`Latitude: ${lat}, Longitude: ${lon}`);
-    
+
     const fetchWeather = await fetch (`${weatherBaseURL}&lat=${lat}&lon=${lon}&days=3&key=${wKey}`)
     const weatherInJson = await fetchWeather.json()
     res.send(weatherInJson)
@@ -72,7 +72,7 @@ app.post('/pic', async function(req, res) {
     cityName = encodeURI(req.body.city).replace('%20', '+');
     countryName = encodeURI(req.body.country).replace('%20', '+');
     console.log(`Image search with a keyword: ${req.body.city}`)
-    
+
     const fetchPic1 = await fetch (`${pixabayBaseURL}key=${pKey}&q=${cityName}&image_type=photo&orientation=horizontal&per_page=3&pretty=true`)
     try {
         const picInJson1 = await fetchPic1.json()

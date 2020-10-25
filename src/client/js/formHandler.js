@@ -3,7 +3,7 @@ async function handleSubmit(event) {
 
     // check what text was put into the form field
     let cityName = document.getElementById('city').value
-    
+
     // calculate how many days till trip departure
     // ref: https://www.geeksforgeeks.org/how-to-calculate-the-number-of-days-between-two-dates-in-javascript/
     // ref: https://www.w3resource.com/javascript/object-property-method/date.php
@@ -38,7 +38,7 @@ async function handleSubmit(event) {
     let receivedPicInJson = {}
 
     console.log('Fetching geographical data from geonames:', { city: cityName });
-    
+
     // これは{city: cityName}をjson形式でserverに送るアクション
     // url,の後ろはoption, how to send post to the client, using POST methodとか
     const resGeo = await fetch('http://localhost:8081/city', {
@@ -63,7 +63,7 @@ async function handleSubmit(event) {
     } catch (error) {
         console.log('error', error);
     }
-    
+
     console.log('Fetching weather data from weatherbit:', {cityLatLon});
 
     // これはcityLatLonをjson形式でserverに送るアクション
@@ -100,7 +100,7 @@ async function handleSubmit(event) {
     try {
         receivedPicInJson = await resPic.json();
         console.log('Data received from pixabay:', receivedPicInJson)
-    
+
         // return receivedPicInJson;
     } catch (error) {
         console.log('error', error);

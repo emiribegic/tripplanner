@@ -61,6 +61,6 @@ module.exports = {
                 // copy images and make a img folder in dist for the reference
               { from: './src/client/media', to: './media' }
             ]
-          })
+        })
     ]
 }

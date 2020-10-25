@@ -29,7 +29,7 @@ module.exports = {
                 test: /\.scss$/,
                 use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"],
             },
-            
+
             {
                 test: /\.(png|jpe?g|gif)$/i,
                 loader: 'file-loader',
@@ -55,12 +55,16 @@ module.exports = {
             cleanStaleWebpackAssets: true,
             protectWebpackAssets: false
         }),
+        new WorkboxPlugin.GenerateSW({
+            // Do not precache images
+            // exclude: [/\.(?:png|jpg|jpeg|svg)$/]
+            // exclude: [/\.map$/, /_redirects/]
+        }),
         new CopyPlugin({
             patterns: [
               { from: './src/client/media', to: './media' }
             ]
         }),
-        new MiniCssExtractPlugin({ filename: "[name].css" }),
-        new WorkboxPlugin.GenerateSW()
+        new MiniCssExtractPlugin({ filename: "[name].css" })
     ]
 }

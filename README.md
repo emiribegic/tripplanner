@@ -1,8 +1,8 @@
-# Evaluate A News Article with Natural Language Processing
+# FEND Capstone - Travel App
 
-4th project at [Udacity](https://www.udacity.com/course/front-end-web-developer-nanodegree--nd0011) Front End Web Developer Nanodegree program.
+Final project at [Udacity](https://www.udacity.com/course/front-end-web-developer-nanodegree--nd0011) Front End Web Developer Nanodegree program.
 
-This project aims to build a web tool that allows users to run Natural Language Processing (NLP) on articles or blogs found on other websites. When a user submits a URL of an article, the web page then dispalys sentiment analysis returned from [meaningcloud API](https://www.meaningcloud.com/products/sentiment-analysis), based on the contents of the article.
+This project aims to build a web app using all of the skills I have learned in Nanodegree program which are listed below (#Built with) section. The app allows users to create trip plans. When a user submit a city name with trip date, the web page then dispalys destination with its photo and 3-day weather forecast returned from external APIs.
 
 ## Built with
 * HTML
@@ -11,8 +11,11 @@ This project aims to build a web tool that allows users to run Natural Language 
 * Node
 * Express
 * Webpack
-* meaningcloud API
+* [GeoNames API](http://www.geonames.org/)
+* [OpenWeather](https://openweathermap.org/)
+* [pixabay](https://pixabay.com/api/docs/#)
 * Jest
+* supertest
 * Workbox
 
 ## Installation
@@ -46,7 +49,10 @@ npm i -D html-webpack-plugin
 npm i -D mini-css-extract-plugin
 npm i -D optimize-css-assets-webpack-plugin terser-webpack-plugin
 ```
-5. Sign up for an API key at [meaningcloud.com](https://www.meaningcloud.com/developer/create-account)
+5. Sign up for API keys at:
+* [GeoNames API](http://www.geonames.org/)
+* [OpenWeather](https://openweathermap.org/)
+* [pixabay](https://pixabay.com/api/docs/#)
 
 6. Configure environment variables using dotenv package
 	1. Install the dotenv package
@@ -54,9 +60,11 @@ npm i -D optimize-css-assets-webpack-plugin terser-webpack-plugin
 	npm install dotenv
 	```
 	2. Create a new `.env` file in the root of your project
-	3. Fill the `.env` file with your API key like this:
+	3. Fill the `.env` file with your API keys like this:
 	```
 	API_KEY=**************************
+	username=**************************
+	apikey=**************************
 	```
 7. Start the project
 

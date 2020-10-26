@@ -100,3 +100,5 @@ app.post('/pic', async function(req, res) {
 app.listen(8081, function () {
     console.log('Travel app listening on port 8081!')
 })
+
+module.exports = { app }

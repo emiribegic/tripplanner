@@ -61,6 +61,10 @@ module.exports = {
             ]
         }),
         new MiniCssExtractPlugin({ filename: "[name].css" }),
-        new WorkboxPlugin.GenerateSW()
+        new WorkboxPlugin.GenerateSW({
+            // Do not precache images
+            // exclude: [/\.(?:png|jpg|jpeg|svg)$/]
+            // exclude: [/\.map$/, /_redirects/]
+        })
     ]
 }

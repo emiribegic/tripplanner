@@ -13,5 +13,7 @@ import './styles/base.scss'
 import './styles/footer.scss'
 import './styles/header.scss'
 
+document.getElementById('submit').addEventListener('click', handleSubmit);
+
 export { handleSubmit }
 export { updateUI }

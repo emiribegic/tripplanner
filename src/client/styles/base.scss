@@ -51,6 +51,20 @@ input {
     width: 100%;
     margin: 10px 0;
     font: $defaultfont;
+
+    &:hover {
+        background: $keycolor;
+    }
+}
+
+
+#submit {
+    width: 100%;
+    font: $defaultfont;
+
+    &:hover {
+        background: $keycolor;
+    }
 }
 
 
@@ -108,7 +122,7 @@ a:hover {
         width: 100%;
         margin: 10px 0;
         font: $defaultfont;
-
+        
     }
 
 

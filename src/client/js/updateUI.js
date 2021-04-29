@@ -1,5 +1,5 @@
-function updateUI(days, img, dest, weather) {
-    return `
+export function updateUI(days, img, dest, weather) {
+	return `
             <div id="dest_img">
                 <img src="${img.hits[0].webformatURL}" alt="">
             </div>
@@ -38,8 +38,5 @@ function updateUI(days, img, dest, weather) {
                     <div id="pop">${weather.data[2].pop}%</div>
                 </div>
             </div>
-            `
+            `;
 }
-
-
-export { updateUI }

@@ -13,10 +13,6 @@ module.exports = {
 	optimization: {
 		minimizer: [new TerserPlugin({}), new CssMinimizerPlugin({})],
 	},
-	output: {
-		libraryTarget: 'var',
-		library: 'Client',
-	},
 	module: {
 		rules: [
 			{

@@ -18,10 +18,6 @@ module.exports = {
 			secure: false,
 		},
 	},
-	output: {
-		libraryTarget: 'var',
-		library: 'Client',
-	},
 	module: {
 		rules: [
 			{

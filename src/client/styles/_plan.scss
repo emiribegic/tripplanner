@@ -1,0 +1,37 @@
+form {
+	border: none;
+	padding: 0 2rem 2rem;
+
+	@media (min-width: 600px) and (max-width: 900px) {
+		form {
+			border: none;
+		}
+	}
+}
+
+input {
+	padding: 5px 20px;
+	width: 100%;
+	margin: 10px 0;
+	font: $default-font;
+
+	@media (min-width: 600px) and (max-width: 900px) {
+		padding: 5px 20px;
+		width: 100%;
+		margin: 10px 0;
+		font: $default-font;
+	}
+
+	&:hover {
+		background: $key-color;
+	}
+}
+
+#submit {
+	width: 100%;
+	font: $default-font;
+
+	&:hover {
+		background: $key-color;
+	}
+}

@@ -1,7 +1,7 @@
 import 'regenerator-runtime/runtime';
 import { updateUI } from './updateUI';
 
-const handleSubmit = async event => {
+export const handleSubmit = async event => {
 	event.preventDefault();
 	const cityName = document.getElementById('city').value;
 
@@ -40,8 +40,6 @@ const handleSubmit = async event => {
 		city: cityName,
 	});
 
-	// これは{city: cityName}をjson形式でserverに送るアクション
-	// url,の後ろはoption, how to send post to the client, using POST methodとか
 	const resGeo = await fetch('/city', {
 		method: 'POST',
 		credentials: 'same-origin',
@@ -52,7 +50,7 @@ const handleSubmit = async event => {
 		body: JSON.stringify({ city: cityName }),
 	});
 	try {
-		const receivedGeoInJson = await resGeo.json(); // receive res from the server side and transform into json
+		const receivedGeoInJson = await resGeo.json();
 		cityLatLon = {
 			city: receivedGeoInJson.geonames[0].name,
 			country: receivedGeoInJson.geonames[0].countryName,
@@ -60,14 +58,12 @@ const handleSubmit = async event => {
 			lon: receivedGeoInJson.geonames[0].lng,
 		};
 		console.log('Data received from geonames:', cityLatLon);
-		// return cityLatLon; //this will end implementation here
 	} catch (err) {
 		console.error(err);
 	}
 
 	console.log('Fetching weather data from weatherbit:', { cityLatLon });
 
-	// これはcityLatLonをjson形式でserverに送るアクション
 	const resWeather = await fetch('/weather', {
 		method: 'POST',
 		credentials: 'same-origin',
@@ -80,15 +76,12 @@ const handleSubmit = async event => {
 	try {
 		receivedWeatherInJson = await resWeather.json();
 		console.log('Data received from weatherbit:', receivedWeatherInJson);
-
-		// return receivedWeatherInJson;
 	} catch (err) {
 		console.error(err);
 	}
 
 	console.log('Fetching a pic from pixabay:', { cityLatLon });
 
-	// これはcityLatLonをjson形式でserverに送るアクション
 	const resPic = await fetch('/pic', {
 		method: 'POST',
 		credentials: 'same-origin',
@@ -101,8 +94,6 @@ const handleSubmit = async event => {
 	try {
 		receivedPicInJson = await resPic.json();
 		console.log('Data received from pixabay:', receivedPicInJson);
-
-		// return receivedPicInJson;
 	} catch (err) {
 		console.error(err);
 	}
@@ -116,5 +107,3 @@ const handleSubmit = async event => {
 	);
 	parentEl.insertAdjacentHTML('beforeend', markup);
 };
-
-export { handleSubmit };

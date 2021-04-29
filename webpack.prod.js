@@ -5,6 +5,8 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
 const CopyPlugin = require('copy-webpack-plugin'); // configure webpack to copy all img resources to the dist folder
+
+// TODO Activate after refactoring sass
 // const WorkboxPlugin = require('workbox-webpack-plugin');
 
 module.exports = {
@@ -45,6 +47,8 @@ module.exports = {
 			patterns: [{ from: './src/client/media', to: './media' }],
 		}),
 		new MiniCssExtractPlugin({ filename: '[name].css' }),
+
+		// TODO Activate after refactoring sass
 		// new WorkboxPlugin.GenerateSW({}),
 	],
 };

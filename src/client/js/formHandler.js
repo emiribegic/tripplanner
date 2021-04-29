@@ -3,7 +3,6 @@ import { updateUI } from './updateUI';
 
 const handleSubmit = async event => {
 	event.preventDefault();
-	// check what text was put into the form field
 	const cityName = document.getElementById('city').value;
 
 	// calculate how many days till trip departure
@@ -15,7 +14,6 @@ const handleSubmit = async event => {
 	const tripStart = new Date(startDate);
 	const tripEnd = new Date(endDate);
 	const diffInTime = tripStart.getTime() - today.getTime();
-	// rounded up to the nearest integer (ref: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Math/round)
 	const diffInDays = Math.round(diffInTime / (1000 * 3600 * 24));
 	// put dates in object to be accessible from everywhere
 	const dates = { startDate, endDate, diffInDays };
@@ -34,9 +32,6 @@ const handleSubmit = async event => {
 		return;
 	}
 
-	console.log('::: Form Submitted :::');
-
-	// to make each fetched data be accessible from everywhere
 	let cityLatLon = {};
 	let receivedWeatherInJson = {};
 	let receivedPicInJson = {};
@@ -112,13 +107,14 @@ const handleSubmit = async event => {
 		console.error(err);
 	}
 
-	const trip = document.getElementById('trip');
-	trip.innerHTML = updateUI(
+	const parentEl = document.querySelector('main');
+	const markup = updateUI(
 		dates,
 		receivedPicInJson,
 		cityLatLon,
 		receivedWeatherInJson
 	);
+	parentEl.insertAdjacentHTML('beforeend', markup);
 };
 
 export { handleSubmit };

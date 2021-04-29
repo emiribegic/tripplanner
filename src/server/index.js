@@ -3,6 +3,9 @@ const cors = require('cors');
 const app = express();
 const port = process.env.PORT || 8081;
 const fetch = require('node-fetch');
+const geoBaseURL = 'http://api.geonames.org/searchJSON?q';
+const weatherBaseURL = 'https://api.weatherbit.io/v2.0/forecast/daily?';
+const pixabayBaseURL = 'https://pixabay.com/api/?';
 require('dotenv').config();
 
 app.use(express.urlencoded({ extended: false }));
@@ -11,7 +14,6 @@ app.use(cors());
 app.use(express.static('dist'));
 
 // geonames (without JSON in URL, data will be sent as XML)
-const geoBaseURL = 'http://api.geonames.org/searchJSON?q';
 app.post('/city', async (req, res) => {
 	try {
 		const city = encodeURI(req.body.city);
@@ -31,7 +33,6 @@ app.post('/city', async (req, res) => {
 });
 
 // weatherbit
-const weatherBaseURL = 'https://api.weatherbit.io/v2.0/forecast/daily?';
 app.post('/weather', async (req, res) => {
 	try {
 		const lat = req.body.lat;
@@ -54,7 +55,6 @@ app.post('/weather', async (req, res) => {
 });
 
 //pixabay
-const pixabayBaseURL = 'https://pixabay.com/api/?';
 app.post('/pic', async (req, res) => {
 	// remove whitespaces and replace it with '+'
 	// ref: https://stackoverflow.com/questions/3794919/replace-all-spaces-in-a-string-with
@@ -90,7 +90,7 @@ app.post('/pic', async (req, res) => {
 	}
 });
 
-// designates what port the app will listen to for incoming requests
 app.listen(port, () => console.log(`Travel app listening on port ${port}!`));
 
-module.exports = { app };
+// TODO Might delete later?
+// module.exports = { app };

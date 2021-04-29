@@ -18,18 +18,18 @@
 		</header>
 
 		<main>
-			<section class="entry">
-				<h2>Plan and manage your trips smarter</h2>
-				<form class="entry__form">
-					<input id="city" type="text" name="city" class="entry__bar"
+			<section class="plan">
+				<h2 class="plan__heading">Plan and manage your trips smarter</h2>
+				<form class="plan__form">
+					<input id="city" type="text" name="city" class="plan__input plan__input-destination"
 						placeholder="Where to (e.g. Paris, Tokyo, New York)">
 
-					<label for="start">Start:</label>
-					<input type="date" id="start" name="start" required>
-					<label for="end">End:</label>
-					<input type="date" id="end" name="end" required>
+					<label for="start" class="plan__label plan__label-start">Start:</label>
+					<input type="date" id="start" name="start" class="plan__input plan__input-start" required>
+					<label for="end" class="plan__label plan__label-end">End:</label>
+					<input type="date" id="end" name="end" class="plan__input plan__input-end" required>
 
-					<button id="submit" type="submit">Start planning</button>
+					<button id="submit" type="submit" class="btn plan__btn">Start planning</button>
 				</form>
 			</section>
 		</main>

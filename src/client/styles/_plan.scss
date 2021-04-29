@@ -1,37 +1,44 @@
-form {
-	border: none;
-	padding: 0 2rem 2rem;
+.plan {
+	&__heading {
+		text-align: center;
+		padding: 0 1rem;
+	}
 
-	@media (min-width: 600px) and (max-width: 900px) {
-		form {
-			border: none;
+	&__form {
+		display: grid;
+		grid-template-columns: 1fr 2fr;
+		grid-template-rows: repeat(4, minmax(2rem, 1fr));
+		row-gap: 1rem;
+		padding: 1rem;
+	}
+
+	&__input {
+		&-destination {
+			grid-area: 1 / 1 / span 1 / span 2;
+		}
+
+		&-start {
+			grid-area: 2 / 2 / span 1 / span 1;
+		}
+
+		&-end {
+			grid-area: 3 / 2 / span 1 / span 1;
 		}
 	}
-}
 
-input {
-	padding: 5px 20px;
-	width: 100%;
-	margin: 10px 0;
-	font: $default-font;
+	&__label {
+		place-self: center;
 
-	@media (min-width: 600px) and (max-width: 900px) {
-		padding: 5px 20px;
-		width: 100%;
-		margin: 10px 0;
-		font: $default-font;
+		&-start {
+			grid-area: 2 / 1 / span 1 / span 1;
+		}
+
+		&-end {
+			grid-area: 3 / 1 / span 1 / span 1;
+		}
 	}
 
-	&:hover {
-		background: $key-color;
-	}
-}
-
-#submit {
-	width: 100%;
-	font: $default-font;
-
-	&:hover {
-		background: $key-color;
+	&__btn {
+		grid-area: 4 / 1 / span 1 / span 2;
 	}
 }

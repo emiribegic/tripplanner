@@ -20,9 +20,9 @@ app.use(express.static('dist'));
 
 // TODO Check for the meaning
 /** GET Router */
-app.get('/', function (req, res) {
-	res.sendFile('dist/index.html');
-});
+// app.get('/', function (req, res) {
+// 	res.sendFile('dist/index.html');
+// });
 
 /** POST Router */
 

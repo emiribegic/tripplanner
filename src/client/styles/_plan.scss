@@ -11,6 +11,19 @@
 		grid-template-columns: 1fr;
 		row-gap: 1rem;
 		padding: 1rem;
+
+		@media only screen and (min-width: $bp-large) {
+			// display: flex;
+			// justify-content: space-around;
+			grid-template-columns: 7fr 1fr 4fr 1fr 4fr 3fr;
+			column-gap: 0.5rem;
+		}
+	}
+
+	&__label {
+		@media only screen and (min-width: $bp-large) {
+			place-self: center;
+		}
 	}
 
 	&__input {

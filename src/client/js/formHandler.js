@@ -98,7 +98,7 @@ export const handleSubmit = async event => {
 		console.error(err);
 	}
 
-	const parentEl = document.querySelector('main');
+	const parentEl = document.querySelector('.dest__list');
 	const markup = updateUI(
 		dates,
 		receivedPicInJson,

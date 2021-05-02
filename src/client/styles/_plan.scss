@@ -1,4 +1,6 @@
 .plan {
+	background: $bg-color;
+
 	&__heading {
 		text-align: center;
 		padding: 0 1rem;
@@ -16,8 +18,8 @@
 		font: $default-font;
 
 		&:focus {
-			border: 1px solid #000;
 			outline: none;
+			border: 1px solid #000;
 			background: $key-color;
 			color: #fff;
 		}

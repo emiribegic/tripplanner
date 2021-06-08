@@ -11,7 +11,7 @@ module.exports = {
 	stats: 'verbose',
 	devServer: {
 		host: 'localhost',
-		port: 3000,
+		port: 8000,
 		proxy: {
 			context: () => true,
 			target: 'http://localhost:8081',

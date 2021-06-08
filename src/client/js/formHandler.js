@@ -1,6 +1,15 @@
 import 'regenerator-runtime/runtime';
 import { updateUI } from './updateUI';
 
+// Helper
+const convertDates = d => {
+	const year = d.getFullYear();
+	const month = d.getMonth();
+	const date = d.getDate();
+	const timeStamp = new Date(year, month, date).getTime();
+	return timeStamp;
+};
+
 export const handleSubmit = async event => {
 	event.preventDefault();
 	const cityName = document.getElementById('city').value;
@@ -12,11 +21,15 @@ export const handleSubmit = async event => {
 	const endDate = document.getElementById('end').value;
 	const today = new Date();
 	const tripStart = new Date(startDate);
+	console.log(startDate);
+	console.log(today);
+	console.log(tripStart);
 	const tripEnd = new Date(endDate);
 	const diffInTime = tripStart.getTime() - today.getTime();
 	const diffInDays = Math.round(diffInTime / (1000 * 3600 * 24));
 	// put dates in object to be accessible from everywhere
 	const dates = { startDate, endDate, diffInDays };
+	console.log(dates);
 
 	// alert if a user submit without entering values
 	if (cityName === '') {
@@ -25,7 +38,10 @@ export const handleSubmit = async event => {
 	}
 
 	// check if a user enter a valid date
-	if (tripStart < today || tripEnd < tripStart) {
+	if (
+		convertDates(tripStart) < convertDates(today) ||
+		convertDates(tripEnd) < convertDates(tripStart)
+	) {
 		alert(
 			'Invalid date: either you select past date as start date or set end date earlier than start date.'
 		);

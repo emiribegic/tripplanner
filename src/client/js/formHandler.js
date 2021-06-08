@@ -21,15 +21,11 @@ export const handleSubmit = async event => {
 	const endDate = document.getElementById('end').value;
 	const today = new Date();
 	const tripStart = new Date(startDate);
-	console.log(startDate);
-	console.log(today);
-	console.log(tripStart);
 	const tripEnd = new Date(endDate);
 	const diffInTime = tripStart.getTime() - today.getTime();
 	const diffInDays = Math.round(diffInTime / (1000 * 3600 * 24));
 	// put dates in object to be accessible from everywhere
 	const dates = { startDate, endDate, diffInDays };
-	console.log(dates);
 
 	// alert if a user submit without entering values
 	if (cityName === '') {

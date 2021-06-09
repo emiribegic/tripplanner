@@ -5,6 +5,25 @@ const app = express();
 const port = process.env.PORT || 8081;
 const mongodb = process.env.MONGO;
 const mongoose = require('mongoose');
+const { getData } = require('./apis/getData');
+
+app.use(express.urlencoded({ extended: false }));
+app.use(express.json());
+app.use(cors());
+app.use(express.static('dist'));
+
+// Create trip data
+app.post('/city', async (req, res) => {
+	try {
+		const city = encodeURI(req.body.input);
+		const data = await getData(city);
+		res.send(data);
+	} catch (err) {
+		console.error(err);
+	}
+});
+
+// DB
 mongoose
 	.connect(mongodb, {
 		useNewUrlParser: true,
@@ -18,21 +37,3 @@ mongoose
 		);
 	})
 	.catch(err => console.error('Failed to connect to database', err));
-
-const { getGeonames } = require('./apis/geonames');
-const { getWeatherbit } = require('./apis/weatherbit');
-const { getPixabay } = require('./apis/pixabay');
-
-app.use(express.urlencoded({ extended: false }));
-app.use(express.json());
-app.use(cors());
-app.use(express.static('dist'));
-
-// geonames
-app.post('/city', getGeonames);
-
-// weatherbit
-app.post('/weather', getWeatherbit);
-
-// pixabay
-app.post('/pic', getPixabay);

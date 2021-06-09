@@ -12,10 +12,9 @@ export const sendData = async (url = '', payload = {}) => {
 	const res = await axios.post(url, payload, { withCredentials: true });
 	try {
 		const { data } = res;
-		console.log(res);
-		console.log(data.geonames[0]);
-		return data.geonames[0];
+		return data;
 	} catch (err) {
 		console.error(err);
+		throw err;
 	}
 };

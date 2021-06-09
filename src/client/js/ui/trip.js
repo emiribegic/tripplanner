@@ -7,7 +7,7 @@ class Trip extends Base {
 
 	_generateMarkup() {
 		return `
-      <div>Trip to ${this._data.name}</div>
+      <div>Trip to ${this._data.city}</div>
     `;
 	}
 }

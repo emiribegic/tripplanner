@@ -1,4 +1,3 @@
-import axios from 'axios';
 import 'regenerator-runtime/runtime';
 import * as model from './model';
 import Add from './ui/add';
@@ -9,12 +8,16 @@ const controlTrip = async function () {
 		// 1. Get user input
 		const input = Add.getInput();
 		if (!input) return;
-		console.log(input);
 
 		// 2. Show spinner
 		Trip.showSpinner();
-		const test = await model.sendData('/city', { input });
-		Trip.render(test);
+		const data = await model.sendData('/city', { input });
+
+		// TODO delete after development
+		!data ? console.log(`${input} does not exist`) : console.log(data);
+
+		// Render trip
+		Trip.render(data);
 	} catch (err) {
 		console.error(err);
 	}

@@ -5,6 +5,7 @@ const weatherUrl = 'https://api.weatherbit.io/v2.0/forecast/daily?';
 const pixUrl = 'https://pixabay.com/api/?';
 
 // TODO Refactor needed for cleaner code
+// TODO Depend on the refactor, move this file up one hierarchy level
 const getData = async city => {
 	try {
 		const resGeo = await axios.get(

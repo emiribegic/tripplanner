@@ -2,6 +2,8 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 const port = process.env.PORT || 8081;
+const mongodb = `mongodb+srv://${prosess.env.DB_NAME}:${prosess.env.DB_PASS}@cluster0.r9iwy.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
+require('dotenv').config();
 
 const { getGeonames } = require('./apis/geonames');
 const { getWeatherbit } = require('./apis/weatherbit');

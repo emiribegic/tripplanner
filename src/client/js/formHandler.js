@@ -1,19 +1,5 @@
-import 'regenerator-runtime/runtime';
-
-// Send data to server to make API requests
-// TODO do i need to data={} or just data
-const sendData = async (url = '', info = {}) => {
-	const res = await axios.post(url, info, { withCredentials: true });
-	try {
-		const { data } = res;
-		console.log(data);
-		return data;
-	} catch (err) {
-		console.error(err);
-	}
-};
-
 /////////////////////////////////////////////////////
+// import axios from 'axios';
 // import 'regenerator-runtime/runtime';
 // import { updateUI } from './updateUI';
 
@@ -70,11 +56,12 @@ const sendData = async (url = '', info = {}) => {
 
 // 	const resGeo = await axios.post(
 // 		'/city',
-// 		{ city: cityName },
+// 		{ input: cityName },
 // 		{ withCredentials: true }
 // 	);
 // 	try {
-// 		const receivedGeoInJson = await resGeo.json();
+// 		console.log(resGeo);
+// 		const receivedGeoInJson = resGeo.data;
 // 		cityLatLon = {
 // 			city: receivedGeoInJson.geonames[0].name,
 // 			country: receivedGeoInJson.geonames[0].countryName,

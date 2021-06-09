@@ -21,7 +21,7 @@ mongoose
 
 const { getGeonames } = require('./apis/geonames');
 const { getWeatherbit } = require('./apis/weatherbit');
-const { pixabay } = require('./apis/pixabay');
+const { getPixabay } = require('./apis/pixabay');
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
@@ -35,4 +35,4 @@ app.post('/city', getGeonames);
 app.post('/weather', getWeatherbit);
 
 // pixabay
-app.post('/pic', pixabay);
+app.post('/pic', getPixabay);

@@ -2,7 +2,7 @@ require('dotenv').config();
 const axios = require('axios');
 const pixabayBaseURL = 'https://pixabay.com/api/?';
 
-const pixabay = async (req, res) => {
+const getPixabay = async (req, res) => {
 	// remove whitespaces and replace it with '+'
 	// ref: https://stackoverflow.com/questions/3794919/replace-all-spaces-in-a-string-with
 	const cityName = encodeURI(req.body.city).replace('%20', '+');
@@ -31,4 +31,4 @@ const pixabay = async (req, res) => {
 	}
 };
 
-module.exports = { pixabay };
+module.exports = { getPixabay };

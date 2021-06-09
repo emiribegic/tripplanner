@@ -1,9 +1,23 @@
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const app = express();
 const port = process.env.PORT || 8081;
-const mongodb = `mongodb+srv://${prosess.env.DB_NAME}:${prosess.env.DB_PASS}@cluster0.r9iwy.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
-require('dotenv').config();
+const mongodb = process.env.MONGO;
+const mongoose = require('mongoose');
+mongoose
+	.connect(mongodb, {
+		useNewUrlParser: true,
+		autoIndex: true,
+		useUnifiedTopology: true,
+	})
+	.then(() => {
+		console.log('Connected to database');
+		app.listen(port, () =>
+			console.log(`Travel app listening on port ${port}`)
+		);
+	})
+	.catch(err => console.error('Failed to connect to database', err));
 
 const { getGeonames } = require('./apis/geonames');
 const { getWeatherbit } = require('./apis/weatherbit');
@@ -22,5 +36,3 @@ app.post('/weather', getWeatherbit);
 
 // pixabay
 app.post('/pic', pixabay);
-
-app.listen(port, () => console.log(`Travel app listening on port ${port}!`));

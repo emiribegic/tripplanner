@@ -1,13 +1,18 @@
 import 'regenerator-runtime/runtime';
 import * as model from './model';
-import Add from './ui/add';
+import Form from './ui/form';
 import Trip from './ui/trip';
 
 const controlTrip = async function () {
 	try {
 		// 1. Get user input
-		const input = Add.getInput();
-		if (!input) return;
+		const inputData = Form.getInput();
+		const { input, start, end } = inputData;
+		console.log(typeof start);
+
+		// 2. Validate date
+		console.log(start);
+		model.validateDate(start, end);
 
 		// 2. Show spinner
 		Trip.showSpinner();
@@ -26,5 +31,5 @@ const controlTrip = async function () {
 };
 
 export const init = function () {
-	Add.addHandler(controlTrip);
+	Form.addHandler(controlTrip);
 };

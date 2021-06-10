@@ -11,13 +11,15 @@ const controlTrip = async function () {
 
 		// 2. Show spinner
 		Trip.showSpinner();
-		const data = await model.sendData('/city', { input });
+		await model.sendData('/trip', { input });
 
 		// TODO delete after development
-		!data ? console.log(`${input} does not exist`) : console.log(data);
+		!model.state
+			? console.log(`${input} does not exist`)
+			: console.log(model.state);
 
 		// Render trip
-		Trip.render(data);
+		Trip.render(model.state);
 	} catch (err) {
 		console.error(err);
 	}

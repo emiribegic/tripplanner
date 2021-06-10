@@ -13,10 +13,10 @@ app.use(cors());
 app.use(express.static('dist'));
 
 // Create trip data
-app.post('/city', async (req, res) => {
+app.post('/trip', async (req, res) => {
 	try {
-		const city = encodeURI(req.body.input);
-		const data = await getData(city);
+		const destination = encodeURI(req.body.input);
+		const data = await getData(destination);
 		res.send(data);
 	} catch (err) {
 		console.error(err);

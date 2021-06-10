@@ -12,7 +12,6 @@ export const sendData = async (url = '', payload = {}) => {
 	const res = await axios.post(url, payload, { withCredentials: true });
 	try {
 		const { data } = res;
-		console.log(data);
 		state.destination = data.destination;
 		state.pic = {
 			url: data.pic.webformatURL,

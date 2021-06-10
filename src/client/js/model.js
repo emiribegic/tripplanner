@@ -29,7 +29,6 @@ export const sendData = async (url = '', payload = {}) => {
 			};
 		});
 	} catch (err) {
-		console.error(err);
 		throw err;
 	}
 };

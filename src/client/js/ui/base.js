@@ -16,7 +16,7 @@ export default class Base {
 		this._parentEl.innerHTML = '';
 	}
 
-	showSpinner() {
+	renderSpinner() {
 		const markup = `
       <div class="ui segment">
         <div class="ui active inverted dimmer">
@@ -29,7 +29,7 @@ export default class Base {
 		this._parentEl.insertAdjacentHTML('afterbegin', markup);
 	}
 
-	showError(message = this._errorMessage) {
+	renderError(message = this._errorMessage) {
 		const markup = `
         <span class="error">${message}</span>
       `;

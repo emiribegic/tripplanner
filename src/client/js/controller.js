@@ -18,17 +18,18 @@ const controlTrip = async function () {
 		}
 
 		// 3. Show spinner
-		Trip.showSpinner();
+		Trip.renderSpinner();
 		await model.sendData('/trip', { input });
 
 		// TODO delete after development
-		!model.state
-			? console.log(`${input} does not exist`)
-			: console.log(model.state);
+		// !model.state
+		// 	? console.log(`${input} does not exist`)
+		// 	: console.log(model.state);
 
 		// Render trip
 		Trip.render(model.state);
 	} catch (err) {
+		Trip.renderError();
 		console.error(err);
 	}
 };

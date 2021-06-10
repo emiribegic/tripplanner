@@ -1,7 +1,7 @@
 class Form {
 	_parentEl = document.querySelector('.plan__form');
 	_errorMessage =
-		'Oops, it seems like you selected past date as start date or set end date earlier than start date!';
+		'Seems like you selected invalid date. (past date as start date or set end date earlier than start date.) Please try again!';
 
 	getInput() {
 		const destination = this._parentEl.querySelector('#city').value;

@@ -43,16 +43,12 @@ export const validateDate = (start, end) => {
 	const tsToday = dayjs(today);
 	const tsStart = dayjs(start);
 	const tsEnd = dayjs(end);
-	console.log(tsToday);
-	console.log(tsStart);
-	console.log(tsEnd);
 
-	///////////
-	const a = tsStart.isSameOrAfter(today);
-	const b = tsStart.isSameOrBefore(tsEnd);
+	const validStart = tsStart.isSameOrAfter(today);
+	const validEnd = tsStart.isSameOrBefore(tsEnd);
 
 	// if ok then
-	if (a && b) {
+	if (validStart && validEnd) {
 		const countdown =
 			tsToday.to(tsStart) === 'a few seconds ago'
 				? 'in 0 day'

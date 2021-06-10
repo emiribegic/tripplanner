@@ -8,13 +8,16 @@ const controlTrip = async function () {
 		// 1. Get user input
 		const inputData = Form.getInput();
 		const { input, start, end } = inputData;
-		console.log(typeof start);
+		console.log(inputData);
 
 		// 2. Validate date
-		console.log(start);
-		model.validateDate(start, end);
+		const validDate = model.validateDate(start, end);
+		if (!validDate) {
+			Form.alertError();
+			return;
+		}
 
-		// 2. Show spinner
+		// 3. Show spinner
 		Trip.showSpinner();
 		await model.sendData('/trip', { input });
 

@@ -1,12 +1,12 @@
 import axios from 'axios';
-import { convertDate } from './helper';
+import dayjs from './plugin/dayjs';
 
 // Check later
 export const state = {
 	destination: '',
 	pic: {},
 	weather: [],
-	inDays: 0,
+	date: {},
 };
 
 // Send data to server to make API requests
@@ -35,18 +35,37 @@ export const sendData = async (url = '', payload = {}) => {
 };
 
 export const validateDate = (start, end) => {
-	const today = new Date();
-	const tsStart = convertDate(start);
-	const tsEnd = convertDate(end);
-	const tsToday = convertDate(today);
-	const inDays = Math.ceil((tsStart - tsToday) / (1000 * 3600 * 24));
+	let validation = true;
 
-	if (tsStart < tsToday || tsEnd < tsStart);
-	alert(
-		'Invalid date: either you select past date as start date or set end date earlier than start date.'
-	);
+	const { $y, $M, $D } = dayjs();
+	const today = `${$y}-${$M + 1}-${$D}`;
 
-	state.inDays = inDays;
+	const tsToday = dayjs(today);
+	const tsStart = dayjs(start);
+	const tsEnd = dayjs(end);
+	console.log(tsToday);
+	console.log(tsStart);
+	console.log(tsEnd);
 
-	return;
+	///////////
+	const a = tsStart.isSameOrAfter(today);
+	const b = tsStart.isSameOrBefore(tsEnd);
+
+	// if ok then
+	if (a && b) {
+		const countdown =
+			tsToday.to(tsStart) === 'a few seconds ago'
+				? 'in 0 day'
+				: tsToday.to(tsStart);
+
+		state.date = {
+			start: start,
+			end: end,
+			countdown: countdown,
+		};
+
+		return validation;
+	}
+
+	return !validation;
 };

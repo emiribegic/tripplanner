@@ -1,5 +1,7 @@
 class Form {
 	_parentEl = document.querySelector('.plan__form');
+	_errorMessage =
+		'Oops, it seems like you selected past date as start date or set end date earlier than start date!';
 
 	getInput() {
 		const destination = this._parentEl.querySelector('#city').value;
@@ -11,7 +13,7 @@ class Form {
 			end: end,
 		};
 
-		// this._clearInput();
+		this._clearInput();
 		return query;
 	}
 
@@ -19,6 +21,11 @@ class Form {
 		this._parentEl.querySelector('#city').value = '';
 		this._parentEl.querySelector('#start').value = '';
 		this._parentEl.querySelector('#end').value = '';
+	}
+
+	alertError(message = this._errorMessage) {
+		alert(message);
+		this._clearInput();
 	}
 
 	addHandler(handler) {

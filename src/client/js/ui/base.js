@@ -18,12 +18,7 @@ export default class Base {
 
 	renderSpinner() {
 		const markup = `
-      <div class="ui segment">
-        <div class="ui active inverted dimmer">
-          <div class="ui text loader">Loading</div>
-        </div>
-        <p></p>
-      </div>
+    <i class="notched circle big loading icon"></i>
 		`;
 		this._clear();
 		this._parentEl.insertAdjacentHTML('afterbegin', markup);

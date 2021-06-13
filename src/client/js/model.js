@@ -23,6 +23,7 @@ export const sendData = async (url = '', payload = {}) => {
 			return {
 				date: item.datetime,
 				icon: item.weather.icon,
+				alt: item.weather.description,
 				high: item.max_temp,
 				low: item.min_temp,
 				rain: item.pop,

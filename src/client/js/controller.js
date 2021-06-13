@@ -8,7 +8,7 @@ const controlTrip = async function () {
 		// 1. Get user input
 		const inputData = Form.getInput();
 		const { input, start, end } = inputData;
-		console.log(inputData);
+		// console.log(inputData);
 
 		// 2. Validate date
 		const validDate = model.validateDate(start, end);
@@ -27,6 +27,7 @@ const controlTrip = async function () {
 		// 	: console.log(model.state);
 
 		// Render trip
+		console.log(model.state);
 		Trip.render(model.state);
 	} catch (err) {
 		Trip.renderError();

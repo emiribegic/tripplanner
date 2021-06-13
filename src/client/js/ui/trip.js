@@ -1,3 +1,4 @@
+import dayjs from '../plugin/dayjs';
 import Base from './base';
 
 class Trip extends Base {
@@ -18,11 +19,11 @@ class Trip extends Base {
 				<div class="trips__content">
 					<header class="trips__header">
 						${trip.destination}<br>
-						${trip.date.start}
+						${dayjs(trip.date.start).format('MMMM YYYY')}
 					</header>
 					<div class="trips__meta">
-						<span class="trips__date">${trip.date.start}</span>
-						<span class="trips__countdown">${trip.date.countdown}</span>
+						<span class="trips__date">${this._formatDate(trip)}</span>
+						<span class="trips__countdown">(${trip.date.countdown})</span>
 					</div>
 					<ul class="trips__weather">
 						${trip.weather.map(this._generateWeatherData).join('')}
@@ -30,6 +31,20 @@ class Trip extends Base {
 				</div>
 			</li>
 		`;
+	}
+
+	_formatDate(d) {
+		const startM = dayjs(d.date.start).format('MMM');
+		const startD = dayjs(d.date.start).format('D');
+		const startY = dayjs(d.date.start).format('YYYY');
+		const endM = dayjs(d.date.end).format('MMM');
+		const endD = dayjs(d.date.end).format('D');
+		const endY = dayjs(d.date.end).format('YYYY');
+		if (startY === endY && startM === endM)
+			return `${startM} ${startD} - ${endD}, ${startY}`;
+		else if (startY === endY && startM !== endM)
+			return `${startM} ${startD} - ${endM} ${endD}, ${startY}`;
+		else return `${startM} ${startD}, ${startY} - ${endM} ${endD}, ${endY}`;
 	}
 
 	_generateWeatherData(forecast) {

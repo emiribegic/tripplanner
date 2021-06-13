@@ -40,9 +40,13 @@ class Trip extends Base {
 					<img src="../../media/${forecast.icon}.png" alt="${forecast.description}">
 				</div>
 				<div class="trips__forecast-meta">
-					<span class="trips__forecast-high">${forecast.high}°</span>
-					<span class="trips__forecast-low">${forecast.low}°</span>
-					<span class="trips__forecast-high">${forecast.rain}%</span>
+					<span class="trips__forecast-temp">
+						${Math.round(forecast.high)}° / ${Math.round(forecast.low)}°
+					</span>
+					<div class="trips__forecast-pop">
+						<i class="umbrella icon"></i>
+						<span class="trips__forecast-high">${forecast.rain}%</span>
+					</div>
 				</div>
 			</li>
 		`;

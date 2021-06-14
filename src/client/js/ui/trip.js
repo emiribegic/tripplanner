@@ -50,7 +50,9 @@ class Trip extends Base {
 	_generateWeatherData(forecast) {
 		return `
 			<li class="trips__forecast">
-				<span class="trips__forecast-date">${forecast.date}</span>
+				<span class="trips__forecast-date">${dayjs(forecast.date).format(
+					'ddd, DD'
+				)}</span>
 				<div class="trips__forecast-icon">
 					<img src="../../media/${forecast.icon}.png" alt="${forecast.description}">
 				</div>

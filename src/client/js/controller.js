@@ -1,6 +1,7 @@
 import 'regenerator-runtime/runtime';
 import * as model from './model';
 import Form from './ui/form';
+import Message from './ui/message';
 import Trip from './ui/trip';
 
 const controlTrip = async function () {
@@ -18,7 +19,7 @@ const controlTrip = async function () {
 		}
 
 		// 3. Show spinner
-		Trip.renderSpinner();
+		Message.renderSpinner();
 		await model.sendData('/trip', { input });
 
 		// TODO delete after development
@@ -28,9 +29,10 @@ const controlTrip = async function () {
 
 		// Render trip
 		console.log(model.state);
+		Message.renderAddMsg();
 		Trip.render(model.state);
 	} catch (err) {
-		Trip.renderError();
+		Message.renderError();
 		console.error(err);
 	}
 };

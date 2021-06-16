@@ -1,10 +1,49 @@
-.trips__list {
-	display: grid;
-	grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-	grid-column-gap: 1rem;
-	grid-row-gap: 3rem;
-	justify-items: center;
-	align-items: stretch;
+.trips {
+	&__message {
+		margin-bottom: 1rem;
+
+		.loading {
+			width: 100%;
+			margin: 0 auto;
+		}
+	}
+
+	&__list {
+		display: grid;
+		grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+		grid-column-gap: 1rem;
+		grid-row-gap: 3rem;
+		justify-items: center;
+		justify-content: start;
+		align-items: stretch;
+	}
+
+	&__card {
+		padding: 1rem;
+		border: solid 1px #777;
+		border-radius: 5px;
+	}
+
+	&__image {
+		width: calc($bp-largest / 3);
+	}
+
+	&__meta {
+		margin-bottom: 1rem;
+	}
+
+	&__weather {
+		display: flex;
+		justify-content: space-between;
+	}
+
+	&__forecast {
+		text-align: center;
+
+		&-icon {
+			max-width: 4.75rem;
+		}
+	}
 }
 
 // .dest {

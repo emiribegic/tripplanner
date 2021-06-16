@@ -27,8 +27,7 @@ const controlTrip = async function () {
 		// 	? console.log(`${input} does not exist`)
 		// 	: console.log(model.state);
 
-		// Render trip
-		console.log(model.state);
+		// 4. Render trip
 		Message.renderAddMsg();
 		Trip.render(model.state);
 	} catch (err) {

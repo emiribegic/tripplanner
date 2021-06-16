@@ -8,7 +8,6 @@ export default class Base {
 		this._data = data;
 
 		const markup = this._generateMarkup();
-		// this._clear();
 		this._parentEl.insertAdjacentHTML('afterbegin', markup);
 	}
 

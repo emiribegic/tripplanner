@@ -1,5 +1,5 @@
 class Message {
-	_parentEl = document.querySelector('.spinner');
+	_parentEl = document.querySelector('.trips__message');
 	_addMessage = 'New trip added';
 	_deleteMessage = 'Selected trip deleted';
 	_errorMessage = `Oops, we could not find the city you entered, please try again!`;

@@ -3,8 +3,6 @@ import Base from './base';
 
 class Trip extends Base {
 	_parentEl = document.querySelector('.trips__list');
-	_errorMessage =
-		'Oops, we could not find the city you entered, please try again!';
 
 	_generateMarkup() {
 		return this._generateTripCard(this._data);
@@ -17,10 +15,10 @@ class Trip extends Base {
 					<img src="${trip.pic.url}" alt="${trip.pic.alt}">
 				</div>
 				<div class="trips__content">
-					<header class="trips__header">
+					<h3 class="trips__header">
 						${trip.destination}<br>
 						${dayjs(trip.date.start).format('MMMM YYYY')}
-					</header>
+					</h3>
 					<div class="trips__meta">
 						<span class="trips__date">${this._formatDate(trip)}</span>
 						<span class="trips__countdown">(${trip.date.countdown})</span>

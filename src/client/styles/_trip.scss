@@ -10,15 +10,29 @@
 
 	&__list {
 		display: grid;
-		grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
-		grid-column-gap: 1rem;
-		grid-row-gap: 3rem;
-		justify-items: center;
-		justify-content: start;
-		align-items: stretch;
+		grid-template-columns: 1fr;
+		row-gap: 3rem;
+
+		@media only screen and (min-width: $bp-small) {
+			grid-template-columns: repeat(2, 1fr);
+			column-gap: 1rem;
+			justify-items: center;
+			justify-content: start;
+			align-items: stretch;
+		}
+
+		@media only screen and (min-width: $bp-medium) {
+			grid-template-columns: repeat(3, 1fr);
+			column-gap: 1rem;
+			justify-items: center;
+			justify-content: start;
+			align-items: stretch;
+		}
 	}
 
 	&__card {
+		display: flex;
+		flex-direction: column;
 		padding: 1rem;
 		border: solid 1px #777;
 		border-radius: 5px;
@@ -26,6 +40,15 @@
 
 	&__image {
 		width: calc($bp-largest / 3);
+	}
+
+	&__content {
+		margin-bottom: 3rem;
+	}
+
+	&__edit {
+		// Set at the bottom of container (set parent container to flex)
+		margin-top: auto;
 	}
 
 	&__meta {

@@ -27,6 +27,9 @@ class Trip extends Base {
 						${trip.weather.map(this._generateWeatherData).join('')}
 					</ul>
 				</div>
+				<div class="trips__edit">
+					<button class="negative ui button">Delete</button>
+				</div>
 			</li>
 		`;
 	}

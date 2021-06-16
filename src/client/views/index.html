@@ -21,17 +21,48 @@
 
 		<main>
 			<section class="plan">
+				<!-- example -->
+
+				<div class="ui form">
+					<div class="three fields">
+						<div class="field">
+							<label>First name</label>
+							<input type="text" placeholder="First Name">
+						</div>
+						<div class="field">
+							<label>Middle name</label>
+							<input type="text" placeholder="Middle Name">
+						</div>
+						<div class="field">
+							<label>Last name</label>
+							<input type="text" placeholder="Last Name">
+						</div>
+					</div>
+				</div>
+
+				<!-- refactor from here -->
+
 				<form class="plan__form">
-					<input id="city" type="text" name="city" class="plan__input plan__input-destination"
-						placeholder="Where to (e.g. Paris, Tokyo, New York)">
-
-					<label for="start" class="plan__label plan__label-start">Start:</label>
-					<input type="date" id="start" name="start" class="plan__input plan__input-start" required>
-					<label for="end" class="plan__label plan__label-end">End:</label>
-					<input type="date" id="end" name="end" class="plan__input plan__input-end" required>
-
-					<button id="submit" type="submit" class="btn plan__btn">Add a trip</button>
+					<div class="plan__fields">
+						<div class="plan__field">
+							<label for="city" class="plan__label">City</label>
+							<input id="city" type="text" class="plan__input" name="city" placeholder="e.g. Paris, Tokyo, New York"
+								required>
+						</div>
+						<div class="plan__field">
+							<label for="start" class="plan__label">Start</label>
+							<input type="date" id="start" class="plan__input" name="start" required>
+						</div>
+						<div class="plan__field">
+							<label for="end" class="plan__label">End</label>
+							<input type="date" id="end" class="plan__input" name="end" required>
+						</div>
+						<div class="plan__field">
+							<button id="submit" type="submit" class="btn plan__btn">Add a trip</button>
+						</div>
+					</div>
 				</form>
+
 			</section>
 			<section class="trips">
 				<div class="trips__message"></div>

@@ -1,37 +1,92 @@
 .plan {
-	background: $bg-color;
+	&__fields {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
 
-	&__heading {
-		text-align: center;
-		padding: 0 1rem;
+		@media only screen and (min-width: $bp-medium) {
+			flex-direction: row;
+		}
 	}
 
-	&__form {
-		display: grid;
-		grid-template-columns: 1fr;
-		row-gap: 1rem;
-		padding: 1rem;
+	&__field {
+		display: block;
+		margin-bottom: 1rem;
 
-		@media only screen and (min-width: $bp-large) {
-			grid-template-columns: 7fr 1fr 4fr 1fr 4fr 3fr;
-			column-gap: 0.5rem;
+		@media only screen and (min-width: $bp-medium) {
+			width: calc(100% / 3);
+			padding: 0 0.5rem;
+		}
+
+		&:first-child {
+			@media only screen and (min-width: $bp-medium) {
+				padding-left: 0;
+			}
+		}
+
+		&:last-child {
+			@media only screen and (min-width: $bp-medium) {
+				padding-right: 0;
+			}
 		}
 	}
 
 	&__label {
-		@media only screen and (min-width: $bp-large) {
-			place-self: center;
-		}
+		display: block;
+		margin-bottom: 0.3rem;
 	}
 
 	&__input {
+		display: block;
+		height: 2.4rem;
+		width: 100%;
+		line-height: 1.25rem;
+		padding: 0.5rem 1rem;
+		border: 1px solid #777;
+		border-radius: 3px;
 		font: $default-font;
+	}
 
-		&:focus {
-			outline: none;
-			border: 1px solid #000;
-			background: $key-color;
-			color: #fff;
-		}
+	&__btn {
+		display: block;
+		width: 100%;
+		line-height: 1.25rem;
+		padding: 0.5rem 1rem;
+		border: 1px solid #777;
+		border-radius: 3px;
+		margin-top: 1.3rem;
 	}
 }
+
+// .plan {
+// 	background: $bg-color;
+
+// 	&__form {
+// 		display: grid;
+// 		grid-template-columns: 1fr;
+// 		row-gap: 1rem;
+// 		padding: 1rem;
+
+// 		@media only screen and (min-width: $bp-large) {
+// 			grid-template-columns: 7fr 1fr 4fr 1fr 4fr 3fr;
+// 			column-gap: 0.5rem;
+// 		}
+// 	}
+
+// 	&__label {
+// 		@media only screen and (min-width: $bp-large) {
+// 			place-self: center;
+// 		}
+// 	}
+
+// 	&__input {
+// 		font: $default-font;
+
+// 		&:focus {
+// 			outline: none;
+// 			border: 1px solid #000;
+// 			background: $key-color;
+// 			color: #fff;
+// 		}
+// 	}
+// }

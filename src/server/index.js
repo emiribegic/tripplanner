@@ -3,8 +3,6 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 const port = process.env.PORT || 8081;
-const mongodb = process.env.MONGO;
-const mongoose = require('mongoose');
 const { getData } = require('./apis/getData');
 
 app.use(express.urlencoded({ extended: false }));
@@ -23,17 +21,4 @@ app.post('/trip', async (req, res) => {
 	}
 });
 
-// DB
-mongoose
-	.connect(mongodb, {
-		useNewUrlParser: true,
-		autoIndex: true,
-		useUnifiedTopology: true,
-	})
-	.then(() => {
-		console.log('Connected to database');
-		app.listen(port, () =>
-			console.log(`Travel app listening on port ${port}`)
-		);
-	})
-	.catch(err => console.error('Failed to connect to database', err));
+app.listen(port, () => console.log(`Travel app listening on port ${port}`));

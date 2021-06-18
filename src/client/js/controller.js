@@ -31,7 +31,7 @@ const controlTrip = async function () {
 
 		// 4. Render trip
 		Message.renderAddMsg();
-		Trip.render(model.state);
+		Trip.render(model.state.trip);
 	} catch (err) {
 		Message.renderError();
 		console.error(err);

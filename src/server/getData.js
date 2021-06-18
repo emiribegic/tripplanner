@@ -10,8 +10,7 @@ const getData = async destination => {
 			`${geoUrl}=${destination}&maxRows=1&username=${process.env.USERNAME}`
 		);
 
-		const { geonameId, name, countryName, lat, lng } =
-			resGeo.data.geonames[0];
+		const { name, countryName, lat, lng } = resGeo.data.geonames[0];
 
 		const [resWeather, resPix1, resPix2] = await Promise.all([
 			axios.get(
@@ -34,7 +33,6 @@ const getData = async destination => {
 			name === countryName ? countryName : `${name}, ${countryName}`;
 
 		const apiData = {
-			id: geonameId,
 			destination: destionation,
 			weather: resWeather.data.data,
 			pic: pixData,

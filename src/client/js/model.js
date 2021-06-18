@@ -1,13 +1,17 @@
 import axios from 'axios';
 import dayjs from './plugin/dayjs';
+import { nanoid } from 'nanoid';
 
 // Check later
 export const state = {
-	id: 0,
-	destination: '',
-	pic: {},
-	weather: [],
-	date: {},
+	trip: {
+		id: 0,
+		destination: '',
+		pic: {},
+		weather: [],
+		date: {},
+	},
+	savedTrip: [],
 };
 
 // Send data to server to make API requests
@@ -15,13 +19,13 @@ export const sendData = async (url = '', payload = {}) => {
 	const res = await axios.post(url, payload, { withCredentials: true });
 	try {
 		const { data } = res;
-		state.id = data.id;
-		state.destination = data.destination;
-		state.pic = {
+		state.trip.id = nanoid();
+		state.trip.destination = data.destination;
+		state.trip.pic = {
 			url: data.pic.webformatURL,
 			alt: data.pic.tags,
 		};
-		state.weather = data.weather.map(item => {
+		state.trip.weather = data.weather.map(item => {
 			return {
 				date: item.datetime,
 				icon: item.weather.icon,
@@ -56,7 +60,7 @@ export const validateDate = (start, end) => {
 				? 'in 0 day'
 				: tsToday.to(tsStart);
 
-		state.date = {
+		state.trip.date = {
 			start: start,
 			end: end,
 			countdown: countdown,

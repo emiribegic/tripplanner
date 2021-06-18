@@ -3,6 +3,7 @@ import dayjs from './plugin/dayjs';
 
 // Check later
 export const state = {
+	id: 0,
 	destination: '',
 	pic: {},
 	weather: [],
@@ -14,6 +15,7 @@ export const sendData = async (url = '', payload = {}) => {
 	const res = await axios.post(url, payload, { withCredentials: true });
 	try {
 		const { data } = res;
+		state.id = data.id;
 		state.destination = data.destination;
 		state.pic = {
 			url: data.pic.webformatURL,

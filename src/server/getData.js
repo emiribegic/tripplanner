@@ -4,25 +4,24 @@ const geoUrl = 'http://api.geonames.org/searchJSON?q';
 const weatherUrl = 'https://api.weatherbit.io/v2.0/forecast/daily?';
 const pixUrl = 'https://pixabay.com/api/?';
 
-// TODO Refactor needed for cleaner code
-// TODO Depend on the refactor, move this file up one hierarchy level
 const getData = async destination => {
 	try {
 		const resGeo = await axios.get(
 			`${geoUrl}=${destination}&maxRows=1&username=${process.env.USERNAME}`
 		);
 
-		const { name, countryName, lat, lng } = resGeo.data.geonames[0];
+		const { geonameId, name, countryName, lat, lng } =
+			resGeo.data.geonames[0];
 
 		const [resWeather, resPix1, resPix2] = await Promise.all([
 			axios.get(
 				`${weatherUrl}&lat=${lat}&lon=${lng}&days=3&key=${process.env.WKEY}`
 			),
 			axios.get(
-				`${pixUrl}key=${process.env.PKEY}&q=${destination}&image_type=photo&orientation=horizontal&per_page=3&pretty=true`
+				`${pixUrl}key=${process.env.PKEY}&q=${name}&image_type=photo&orientation=horizontal&category=travel&order=popular&per_page=3&pretty=true`
 			),
 			axios.get(
-				`${pixUrl}key=${process.env.PKEY}&q=${countryName}&image_type=photo&orientation=horizontal&per_page=3&pretty=true`
+				`${pixUrl}key=${process.env.PKEY}&q=${countryName}&image_type=photo&orientation=horizontal&category=travel&order=popular&per_page=3&pretty=true`
 			),
 		]);
 
@@ -35,6 +34,7 @@ const getData = async destination => {
 			name === countryName ? countryName : `${name}, ${countryName}`;
 
 		const apiData = {
+			id: geonameId,
 			destination: destionation,
 			weather: resWeather.data.data,
 			pic: pixData,

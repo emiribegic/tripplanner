@@ -22,6 +22,8 @@ const controlTrip = async function () {
 		Message.renderSpinner();
 		await model.sendData('/trip', { input });
 
+		console.log(model.state);
+
 		// TODO delete after development
 		// !model.state
 		// 	? console.log(`${input} does not exist`)

@@ -3,7 +3,7 @@ const express = require('express');
 const cors = require('cors');
 const app = express();
 const port = process.env.PORT || 8081;
-const { getData } = require('./apis/getData');
+const { getData } = require('./getData');
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());

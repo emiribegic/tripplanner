@@ -2,8 +2,8 @@ export default class Base {
 	_data;
 
 	render(data) {
-		if (!data || (Array.isArray(data) && data.length === 0))
-			return this.showError();
+		// if (!data || (Array.isArray(data) && data.length === 0))
+		// 	return this.renderError();
 
 		this._data = data;
 

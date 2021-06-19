@@ -3,6 +3,7 @@ import * as model from './model';
 import Form from './ui/form';
 import Message from './ui/message';
 import Trip from './ui/trip';
+import savedTrip from './ui/savedTrip';
 
 const controlTrip = async function () {
 	try {
@@ -22,8 +23,6 @@ const controlTrip = async function () {
 		Message.renderSpinner();
 		await model.sendData('/trip', { input });
 
-		console.log(model.state);
-
 		// TODO delete after development
 		// !model.state
 		// 	? console.log(`${input} does not exist`)
@@ -31,13 +30,25 @@ const controlTrip = async function () {
 
 		// 4. Render trip
 		Message.renderAddMsg();
-		Trip.render(model.state.trip);
+		Trip.render(model.state);
+		console.log(model.state);
 	} catch (err) {
 		Message.renderError();
 		console.error(err);
 	}
 };
 
+// const AddSavedTrip = () => {
+// 	// 1. Add searched trip to savedTrip array and save this array in local storage
+// 	if (model.state.id !== 0) model.addTrip(model.state);
+// };
+
+const controlSavedTrip = () => {
+	// 1. Add searched trip to savedTrip array and save this array in local storage
+	if (model.savedTrip.length > 0) savedTrip.render(model.savedTrip);
+};
+
 export const init = function () {
+	savedTrip.addHandlerRenderSavedTrip(controlSavedTrip);
 	Form.addHandler(controlTrip);
 };

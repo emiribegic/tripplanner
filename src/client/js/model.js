@@ -4,28 +4,27 @@ import { nanoid } from 'nanoid';
 
 // Check later
 export const state = {
-	trip: {
-		id: 0,
-		destination: '',
-		pic: {},
-		weather: [],
-		date: {},
-	},
-	savedTrip: [],
+	id: 0,
+	destination: '',
+	pic: {},
+	weather: [],
+	date: {},
 };
+
+export let savedTrip = [];
 
 // Send data to server to make API requests
 export const sendData = async (url = '', payload = {}) => {
 	const res = await axios.post(url, payload, { withCredentials: true });
 	try {
 		const { data } = res;
-		state.trip.id = nanoid();
-		state.trip.destination = data.destination;
-		state.trip.pic = {
+		state.id = nanoid();
+		state.destination = data.destination;
+		state.pic = {
 			url: data.pic.webformatURL,
 			alt: data.pic.tags,
 		};
-		state.trip.weather = data.weather.map(item => {
+		state.weather = data.weather.map(item => {
 			return {
 				date: item.datetime,
 				icon: item.weather.icon,
@@ -60,7 +59,7 @@ export const validateDate = (start, end) => {
 				? 'in 0 day'
 				: tsToday.to(tsStart);
 
-		state.trip.date = {
+		state.date = {
 			start: start,
 			end: end,
 			countdown: countdown,
@@ -71,3 +70,23 @@ export const validateDate = (start, end) => {
 
 	return !validation;
 };
+
+const updateStorage = () =>
+	localStorage.setItem('trip', JSON.stringify(state.savedTrip));
+
+// TODO addTrip()をAdd a Tripボタンをクリックした時に作動させる
+// 1 Every successful search is saved to savedTrip array
+export const addTrip = trip => {
+	state.savedTrip.push(trip);
+	// 2 Convert savedTrip array in string and save in localStorage
+	updateStorage();
+};
+
+// 3 Retrieve string from localStorage, convert in object and update savedTrip array
+const init = () => {
+	const storedTrip = localStorage.getItem('trip');
+	if (storedTrip) state.savedTrip = JSON.parse(storedTrip);
+};
+
+init();
+console.log(savedTrip);

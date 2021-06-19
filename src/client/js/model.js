@@ -4,27 +4,28 @@ import { nanoid } from 'nanoid';
 
 // Check later
 export const state = {
-	id: 0,
-	destination: '',
-	pic: {},
-	weather: [],
-	date: {},
+	trip: {
+		id: 0,
+		destination: '',
+		pic: {},
+		weather: [],
+		date: {},
+	},
+	savedTrip: [],
 };
-
-export let savedTrip = [];
 
 // Send data to server to make API requests
 export const sendData = async (url = '', payload = {}) => {
 	const res = await axios.post(url, payload, { withCredentials: true });
 	try {
 		const { data } = res;
-		state.id = nanoid();
-		state.destination = data.destination;
-		state.pic = {
+		state.trip.id = nanoid();
+		state.trip.destination = data.destination;
+		state.trip.pic = {
 			url: data.pic.webformatURL,
 			alt: data.pic.tags,
 		};
-		state.weather = data.weather.map(item => {
+		state.trip.weather = data.weather.map(item => {
 			return {
 				date: item.datetime,
 				icon: item.weather.icon,
@@ -59,34 +60,31 @@ export const validateDate = (start, end) => {
 				? 'in 0 day'
 				: tsToday.to(tsStart);
 
-		state.date = {
+		state.trip.date = {
 			start: start,
 			end: end,
 			countdown: countdown,
 		};
-
 		return validation;
 	}
 
 	return !validation;
 };
 
-// const updateStorage = () =>
-// 	localStorage.setItem('trip', JSON.stringify(savedTrip));
+const updateStorage = () =>
+	localStorage.setItem('trip', JSON.stringify(state.savedTrip));
 
-// // TODO addTrip()をAdd a Tripボタンをクリックした時に作動させる
-// // 1 Every successful search is saved to savedTrip array
-// export const addTrip = trip => {
-// 	savedTrip.push(trip);
-// 	// 2 Convert savedTrip array in string and save in localStorage
-// 	updateStorage();
-// };
+// 1 Every successful search is saved to savedTrip array
+export const addTrip = trip => {
+	state.savedTrip.push({ ...trip });
+	// 2 Convert savedTrip array in string and save in localStorage
+	updateStorage();
+};
 
-// // 3 Retrieve string from localStorage, convert in object and update savedTrip array
-// const init = () => {
-// 	const storedTrip = localStorage.getItem('trip');
-// 	if (storedTrip) savedTrip = JSON.parse(storedTrip);
-// };
+// 3 Retrieve string from localStorage, convert in object and update savedTrip array
+const init = () => {
+	const storedTrip = localStorage.getItem('trip');
+	if (storedTrip) state.savedTrip = JSON.parse(storedTrip);
+};
 
-// init();
-// console.log(savedTrip);
+init();

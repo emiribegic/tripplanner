@@ -10,7 +10,6 @@ const controlTrip = async function () {
 		// 1. Get user input
 		const inputData = Form.getInput();
 		const { input, start, end } = inputData;
-		// console.log(inputData);
 
 		// 2. Validate date
 		const validDate = model.validateDate(start, end);
@@ -23,32 +22,26 @@ const controlTrip = async function () {
 		Message.renderSpinner();
 		await model.sendData('/trip', { input });
 
-		// TODO delete after development
-		// !model.state
-		// 	? console.log(`${input} does not exist`)
-		// 	: console.log(model.state);
+		// 4. Store copy of trip data into savedTrip array
+		model.addTrip(model.state.trip);
+		console.log(model.state);
 
 		// 4. Render trip
 		Message.renderAddMsg();
-		Trip.render(model.state);
-		console.log(model.state);
+		Trip.render(model.state.trip);
 	} catch (err) {
 		Message.renderError();
 		console.error(err);
 	}
 };
 
-// const AddSavedTrip = () => {
-// 	// 1. Add searched trip to savedTrip array and save this array in local storage
-// 	if (model.state.id !== 0) model.addTrip(model.state);
-// };
-
-// const controlSavedTrip = () => {
-// 	// 1. Add searched trip to savedTrip array and save this array in local storage
-// 	if (model.savedTrip.length > 0) savedTrip.render(model.savedTrip);
-// };
+const controlSavedTrip = () => {
+	// 1. Add searched trip to savedTrip array and save this array in local storage
+	if (model.state.savedTrip.length > 0)
+		savedTrip.render(model.state.savedTrip);
+};
 
 export const init = function () {
-	// savedTrip.addHandlerRenderSavedTrip(controlSavedTrip);
+	savedTrip.addHandlerRenderSavedTrip(controlSavedTrip);
 	Form.addHandler(controlTrip);
 };

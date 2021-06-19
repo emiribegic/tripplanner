@@ -43,12 +43,12 @@ const controlTrip = async function () {
 // 	if (model.state.id !== 0) model.addTrip(model.state);
 // };
 
-const controlSavedTrip = () => {
-	// 1. Add searched trip to savedTrip array and save this array in local storage
-	if (model.savedTrip.length > 0) savedTrip.render(model.savedTrip);
-};
+// const controlSavedTrip = () => {
+// 	// 1. Add searched trip to savedTrip array and save this array in local storage
+// 	if (model.savedTrip.length > 0) savedTrip.render(model.savedTrip);
+// };
 
 export const init = function () {
-	savedTrip.addHandlerRenderSavedTrip(controlSavedTrip);
+	// savedTrip.addHandlerRenderSavedTrip(controlSavedTrip);
 	Form.addHandler(controlTrip);
 };

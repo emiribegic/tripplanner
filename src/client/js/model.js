@@ -71,22 +71,22 @@ export const validateDate = (start, end) => {
 	return !validation;
 };
 
-const updateStorage = () =>
-	localStorage.setItem('trip', JSON.stringify(state.savedTrip));
+// const updateStorage = () =>
+// 	localStorage.setItem('trip', JSON.stringify(savedTrip));
 
-// TODO addTrip()をAdd a Tripボタンをクリックした時に作動させる
-// 1 Every successful search is saved to savedTrip array
-export const addTrip = trip => {
-	state.savedTrip.push(trip);
-	// 2 Convert savedTrip array in string and save in localStorage
-	updateStorage();
-};
+// // TODO addTrip()をAdd a Tripボタンをクリックした時に作動させる
+// // 1 Every successful search is saved to savedTrip array
+// export const addTrip = trip => {
+// 	savedTrip.push(trip);
+// 	// 2 Convert savedTrip array in string and save in localStorage
+// 	updateStorage();
+// };
 
-// 3 Retrieve string from localStorage, convert in object and update savedTrip array
-const init = () => {
-	const storedTrip = localStorage.getItem('trip');
-	if (storedTrip) state.savedTrip = JSON.parse(storedTrip);
-};
+// // 3 Retrieve string from localStorage, convert in object and update savedTrip array
+// const init = () => {
+// 	const storedTrip = localStorage.getItem('trip');
+// 	if (storedTrip) savedTrip = JSON.parse(storedTrip);
+// };
 
-init();
-console.log(savedTrip);
+// init();
+// console.log(savedTrip);

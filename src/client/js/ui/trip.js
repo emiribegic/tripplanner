@@ -28,7 +28,7 @@ class Trip extends Base {
 					</ul>
 				</div>
 				<div class="trips__edit">
-					<button class="negative ui button">Delete</button>
+					<button id="${trip.id}" class="negative ui button">Delete</button>
 				</div>
 			</li>
 		`;

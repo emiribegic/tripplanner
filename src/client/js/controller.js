@@ -3,7 +3,8 @@ import * as model from './model';
 import Form from './ui/form';
 import Message from './ui/message';
 import Trip from './ui/trip';
-import savedTrip from './ui/savedTrip';
+import SavedTrip from './ui/savedTrip';
+import DeleteTrip from './ui/deleteTrip';
 
 const controlTrip = async function () {
 	try {
@@ -24,7 +25,7 @@ const controlTrip = async function () {
 
 		// 4. Store copy of trip data into savedTrip array
 		model.addTrip(model.state.trip);
-		console.log(model.state);
+		console.log(model.state.trip);
 
 		// 4. Render trip
 		Message.renderAddMsg();
@@ -38,10 +39,16 @@ const controlTrip = async function () {
 const controlSavedTrip = () => {
 	// 1. Add searched trip to savedTrip array and save this array in local storage
 	if (model.state.savedTrip.length > 0)
-		savedTrip.render(model.state.savedTrip);
+		SavedTrip.render(model.state.savedTrip);
+};
+
+const controlDeleteTrip = id => {
+	model.deleteTrip(id);
+	DeleteTrip.render(model.state.savedTrip);
 };
 
 export const init = function () {
-	savedTrip.addHandlerRenderSavedTrip(controlSavedTrip);
+	SavedTrip.addHandlerRenderSavedTrip(controlSavedTrip);
 	Form.addHandler(controlTrip);
+	DeleteTrip.addHandlerDeleteTrip(controlDeleteTrip);
 };

@@ -8,6 +8,7 @@ export default class Base {
 		this._data = data;
 
 		const markup = this._generateMarkup();
+		//TODO experiment
 		this._parentEl.insertAdjacentHTML('afterbegin', markup);
 	}
 

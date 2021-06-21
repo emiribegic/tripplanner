@@ -74,10 +74,17 @@ export const validateDate = (start, end) => {
 const updateStorage = () =>
 	localStorage.setItem('trip', JSON.stringify(state.savedTrip));
 
-// 1 Every successful search is saved to savedTrip array
+// 1 Every successful search is copied and pushed into savedTrip array
 export const addTrip = trip => {
 	state.savedTrip.push({ ...trip });
 	// 2 Convert savedTrip array in string and save in localStorage
+	updateStorage();
+};
+
+export const deleteTrip = id => {
+	const index = state.savedTrip.findIndex(el => el.id === id);
+	state.savedTrip.splice(index, 1);
+	console.log(state.savedTrip);
 	updateStorage();
 };
 

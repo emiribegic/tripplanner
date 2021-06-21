@@ -1,17 +1,4 @@
 {
-	"name": "travel-app",
-	"version": "1.0.0",
-	"main": "index.js",
-	"scripts": {
-		"test": "jest",
-		"start": "node src/server/index.js",
-		"prod": "webpack --config webpack.prod.js",
-		"dev": "webpack serve --config webpack.dev.js --open"
-	},
-	"keywords": [],
-	"author": "",
-	"license": "ISC",
-	"description": "",
 	"dependencies": {
 		"axios": "^0.21.1",
 		"cors": "^2.8.5",
@@ -24,6 +11,9 @@
 		"webpack": "^5.36.0",
 		"webpack-cli": "^4.5.0"
 	},
+	"name": "travel-app",
+	"version": "1.0.0",
+	"main": "index.js",
 	"devDependencies": {
 		"@babel/core": "^7.13.16",
 		"@babel/plugin-proposal-class-properties": "^7.13.0",
@@ -46,5 +36,23 @@
 		"terser-webpack-plugin": "^5.1.1",
 		"webpack-dev-server": "^3.11.2",
 		"workbox-webpack-plugin": "^6.1.5"
-	}
+	},
+	"scripts": {
+		"test": "jest",
+		"start": "node src/server/index.js",
+		"prod": "webpack --config webpack.prod.js",
+		"dev": "webpack serve --config webpack.dev.js --open"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/emiribegic/fend-capstone-travel-app.git"
+	},
+	"keywords": [],
+	"author": "Emiri Begic",
+	"license": "ISC",
+	"bugs": {
+		"url": "https://github.com/emiribegic/fend-capstone-travel-app/issues"
+	},
+	"homepage": "https://github.com/emiribegic/fend-capstone-travel-app#readme",
+	"description": ""
 }

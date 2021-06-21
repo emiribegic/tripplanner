@@ -1,43 +1,158 @@
+// TODO ok but need to refactor later (21. jun)
+
 .plan {
-	&__fields {
-		display: grid;
-		grid-template-rows: repeat(4, 1fr);
-		row-gap: 1rem;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+
+	height: 90vh;
+	background: center / cover no-repeat url(../media/bgimg.jpg);
+
+	h2 {
+		// TODO Decide which padding is better later
+		padding: 5rem 1rem 0;
+		// padding: 0 1rem;
+
+		// TODO Is it needed???
+		margin-bottom: 3rem;
+
+		text-align: center;
+		color: #fff;
+		font-size: 2rem;
+	}
+
+	&__form {
+		padding: 0 1rem;
 
 		@media only screen and (min-width: $bp-small) {
-			grid-template: repeat(2, 1fr) / repeat(2, 1fr);
-			column-gap: 1rem;
+			padding: 0 3rem;
 		}
 
 		@media only screen and (min-width: $bp-medium) {
-			grid-template-rows: none;
+			padding: 0 6rem;
+		}
+	}
+
+	&__fields {
+		display: grid;
+		grid-template-rows: repeat(4, 1fr);
+		row-gap: 0.5rem;
+
+		@media only screen and (min-width: $bp-small) {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+			grid-template-areas:
+				'ct ct'
+				'st en'
+				'bt bt';
+			column-gap: 0.5rem;
+		}
+
+		@media only screen and (min-width: $bp-medium) {
 			grid-template-columns: repeat(3, minmax(11.4875rem, 1fr)) 7.5rem;
+			grid-template-areas: none;
 			row-gap: 0;
 		}
 	}
 
 	&__field {
-		display: block;
+		// display: block;
 
-		&:last-child {
-			align-self: end;
+		&-01 {
+			@media only screen and (min-width: $bp-small) {
+				grid-area: ct;
+			}
+
+			@media only screen and (min-width: $bp-medium) {
+				grid-area: auto;
+			}
+		}
+
+		&-02 {
+			@media only screen and (min-width: $bp-small) {
+				grid-area: st;
+			}
+
+			@media only screen and (min-width: $bp-medium) {
+				grid-area: auto;
+			}
+		}
+
+		&-03 {
+			@media only screen and (min-width: $bp-small) {
+				grid-area: en;
+			}
+
+			@media only screen and (min-width: $bp-medium) {
+				grid-area: auto;
+			}
+		}
+
+		&-04 {
+			@media only screen and (min-width: $bp-small) {
+				grid-area: bt;
+			}
+
+			@media only screen and (min-width: $bp-medium) {
+				grid-area: auto;
+			}
 		}
 	}
 
-	&__label {
-		display: block;
-		margin-bottom: 0.3rem;
-	}
+	// &__label {
+	// 	display: block;
+	// 	margin-bottom: 0.3rem;
+	// }
 
 	&__input,
 	&__btn {
-		display: block;
+		// display: block;
 		height: 2.4rem;
 		width: 100%;
+		overflow: hidden;
 		line-height: 1.25rem;
 		padding: 0.5rem 1rem;
-		border: 1px solid #777;
+		border: transparent;
 		border-radius: 3px;
 		font: $default-font;
+	}
+
+	&__btn {
+		color: #fff;
+		background: cadetblue;
+	}
+
+	input[type='date'] {
+		max-width: 100%;
+		overflow: hidden;
+
+		&:before {
+			content: attr(placeholder) !important;
+			color: #aaa;
+			margin-right: 0.5em;
+		}
+		&:focus {
+			&:before {
+				content: '';
+			}
+		}
+		&:valid {
+			&:before {
+				content: '';
+			}
+		}
+	}
+
+	::-webkit-input-placeholder {
+		/* Edge */
+		color: #aaa;
+	}
+
+	:-ms-input-placeholder {
+		/* Internet Explorer 10-11 */
+		color: #aaa;
+	}
+
+	::placeholder {
+		color: #aaa;
 	}
 }

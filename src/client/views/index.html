@@ -15,32 +15,33 @@
 
 <body>
 	<div class="container">
+		<!-- maybe delete? -->
 		<header>
-			<h1>tripplanner</h1>
+			<nav class="hnav">tripplanner</nav>
 		</header>
 
 		<main>
 			<section class="plan">
+				<h2>Your journey begins here</h2>
 				<form class="plan__form">
 					<div class="plan__fields">
-						<div class="plan__field">
-							<label for="city" class="plan__label">City</label>
-							<input id="city" type="text" class="plan__input" name="city" placeholder="e.g. Tokyo" required>
+						<div class="plan__field-01">
+							<!-- <label for="city" class="plan__label">City</label> -->
+							<input id="city" type="text" class="plan__input" name="city" placeholder="Where to (e.g. Tokyo)" required>
 						</div>
-						<div class="plan__field">
-							<label for="start" class="plan__label">Start</label>
-							<input type="date" id="start" class="plan__input" name="start" required>
+						<div class="plan__field-02">
+							<!-- <label for="start" class="plan__label">Start</label> -->
+							<input type="date" id="start" class="plan__input" name="start" placeholder="Start" required>
 						</div>
-						<div class="plan__field">
-							<label for="end" class="plan__label">End</label>
-							<input type="date" id="end" class="plan__input" name="end" required>
+						<div class="plan__field-03">
+							<!-- <label for="end" class="plan__label">End</label> -->
+							<input type="date" id="end" class="plan__input" name="end" placeholder="End" required>
 						</div>
-						<div class="plan__field">
+						<div class="plan__field-04">
 							<button id="submit" type="submit" class="btn plan__btn">Add a trip</button>
 						</div>
 					</div>
 				</form>
-
 			</section>
 			<section class="trips">
 				<div class="trips__message"></div>

@@ -2,7 +2,6 @@ import axios from 'axios';
 import dayjs from './plugin/dayjs';
 import { nanoid } from 'nanoid';
 
-// Check later
 export const state = {
 	trip: {
 		id: 0,
@@ -53,7 +52,7 @@ export const validateDate = (start, end) => {
 	const validStart = tsStart.isSameOrAfter(today);
 	const validEnd = tsStart.isSameOrBefore(tsEnd);
 
-	// if ok then
+	// If ok then
 	if (validStart && validEnd) {
 		const countdown =
 			tsToday.to(tsStart) === 'a few seconds ago'
@@ -84,7 +83,6 @@ export const addTrip = trip => {
 export const deleteTrip = id => {
 	const index = state.savedTrip.findIndex(el => el.id === id);
 	state.savedTrip.splice(index, 1);
-	console.log(state.savedTrip);
 	updateStorage();
 };
 

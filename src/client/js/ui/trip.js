@@ -10,7 +10,7 @@ class Trip extends Base {
 
 	_generateTripCard(trip) {
 		return `
-			<li class="trips__card">
+			<li class="trips__card" id="${trip.id}">
 				<div class="trips__image">
 					<img src="${trip.pic.url}" alt="${trip.pic.alt}">
 				</div>
@@ -28,7 +28,7 @@ class Trip extends Base {
 					</ul>
 				</div>
 				<div class="trips__edit">
-					<button id="${trip.id}" class="negative ui button">Delete</button>
+					<button class="negative ui button">Delete</button>
 				</div>
 			</li>
 		`;

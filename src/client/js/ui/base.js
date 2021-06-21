@@ -2,13 +2,9 @@ export default class Base {
 	_data;
 
 	render(data) {
-		// if (!data || (Array.isArray(data) && data.length === 0))
-		// 	return this.renderError();
-
 		this._data = data;
 
 		const markup = this._generateMarkup();
-		//TODO experiment
 		this._parentEl.insertAdjacentHTML('afterbegin', markup);
 	}
 

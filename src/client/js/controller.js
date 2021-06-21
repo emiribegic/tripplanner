@@ -5,7 +5,7 @@ import Message from './ui/message';
 import Trip from './ui/trip';
 import StoredTrips from './ui/storedTrips';
 
-const controlTrip = async function () {
+const controlTrip = async () => {
 	try {
 		// 1 Get user input
 		const inputData = Form.getInput();
@@ -44,7 +44,7 @@ const controlDeleteTrip = id => {
 	model.deleteTrip(id);
 };
 
-export const init = function () {
+export const init = () => {
 	StoredTrips.addHandlerRenderSavedTrip(controlSavedTrip);
 	Form.addHandler(controlTrip);
 	StoredTrips.addHandlerDeleteTrip(controlDeleteTrip);

@@ -29,7 +29,7 @@ class Form {
 	}
 
 	addHandler(handler) {
-		this._parentEl.addEventListener('submit', function (e) {
+		this._parentEl.addEventListener('submit', e => {
 			e.preventDefault();
 			handler();
 		});

@@ -1,17 +1,27 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&family=Playfair+Display:wght@400;800&family=Sacramento&display=swap');
+
 // FONT
-$base-font: 'Roboto Slab', serif;
-$default-font: 300 1rem $base-font;
-$header-font: 800 2.5rem $base-font;
+$default-font: 400 0.8rem 'Lato', sans-serif;
+$bold-font: 800 3rem 'Playfair Display', serif;
+$nav-font: 400 3rem 'Sacramento', cursive;
 
 // COLOR
-$key-color: rgb(247, 125, 25);
-$bg-color: rgba(238, 234, 234, 0.8);
+$bt-color: #20948b;
+$bt-hover-color: #07575b;
+$date-color: #de7a22;
+$heart: #ec96a4;
+$heart-hover: #fa6775;
 
 // RESPONSIVE BREAKPOINTS
 $bp-largest: 75.0625rem; // 1201px
-$bp-large: 64.0625rem; // 1025px;
-$bp-medium: 48.0625rem; // 769px;
+$bp-large: 64.0625rem; // 1025px
+$bp-medium: 53.6875rem; // 859px
 $bp-small: 30.0625rem; // 481px
+
+// PADDING
+$pad-medium: 0 6rem;
+$pad-small: 0 3rem;
+$pad-default: 0 1rem;
 
 * {
 	margin: 0;
@@ -32,19 +42,6 @@ body {
 	font: $default-font;
 }
 
-h3 {
-	margin-bottom: 0;
-}
-
-// .container {
-// 	width: 90%;
-// 	margin: 0 auto;
-// }
-
-// section {
-// 	margin-bottom: 2rem;
-// }
-
 img {
 	// Responsive
 	max-width: 100%;
@@ -57,12 +54,12 @@ ul {
 	list-style: none;
 }
 
-.link {
-	color: #000;
+a {
+	color: $bt-color;
 	text-decoration: none;
 
 	&:hover {
-		color: $key-color;
+		color: $bt-hover-color;
 	}
 
 	&:visited {
@@ -70,17 +67,73 @@ ul {
 	}
 }
 
-.btn {
+button {
+	width: 100%;
+	overflow: hidden;
 	font: $default-font;
-	background: #fff;
-	border: 1px solid #000;
+	text-transform: uppercase;
+	line-height: 1.25rem;
+	color: #fff;
+	background: $bt-color;
+	border: transparent;
+	padding: 0.5rem 1rem;
+	transition: 0.3s;
+
+	&:hover {
+		cursor: pointer;
+		background: #07575b;
+	}
 
 	&:focus {
 		outline: none;
 	}
 
 	&:active {
-		background: $key-color;
+		background: $bt-hover-color;
 		color: #fff;
 	}
+}
+
+input {
+	width: 100%;
+	overflow: hidden;
+	font: $default-font;
+	line-height: 1.25rem;
+	border: transparent;
+	padding: 0.5rem 1rem;
+
+	&[type='date'] {
+		max-width: 100%;
+		overflow: hidden;
+
+		&:before {
+			content: attr(placeholder) !important;
+			color: #aaa;
+			margin-right: 0.5em;
+		}
+		&:focus {
+			&:before {
+				content: '';
+			}
+		}
+		&:valid {
+			&:before {
+				content: '';
+			}
+		}
+	}
+}
+
+::-webkit-input-placeholder {
+	/* Edge */
+	color: #aaa;
+}
+
+:-ms-input-placeholder {
+	/* Internet Explorer 10-11 */
+	color: #aaa;
+}
+
+::placeholder {
+	color: #aaa;
 }

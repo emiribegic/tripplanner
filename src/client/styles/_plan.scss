@@ -1,35 +1,28 @@
-// TODO ok but need to refactor later (21. jun)
-
 .plan {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-
 	height: 90vh;
-	background: center / cover no-repeat url(../media/bgimg.jpg);
+	background: top / cover no-repeat
+		url(../media/pexels-spencer-davis-4340670.jpg);
 
-	h2 {
-		// TODO Decide which padding is better later
+	&__header {
 		padding: 5rem 1rem 0;
-		// padding: 0 1rem;
-
-		// TODO Is it needed???
-		margin-bottom: 3rem;
-
+		margin-bottom: 2rem;
 		text-align: center;
 		color: #fff;
-		font-size: 2rem;
+		font: $bold-font;
 	}
 
 	&__form {
-		padding: 0 1rem;
+		padding: $pad-default;
 
 		@media only screen and (min-width: $bp-small) {
-			padding: 0 3rem;
+			padding: $pad-small;
 		}
 
 		@media only screen and (min-width: $bp-medium) {
-			padding: 0 6rem;
+			padding: $pad-medium;
 		}
 	}
 
@@ -55,8 +48,6 @@
 	}
 
 	&__field {
-		// display: block;
-
 		&-01 {
 			@media only screen and (min-width: $bp-small) {
 				grid-area: ct;
@@ -98,61 +89,9 @@
 		}
 	}
 
-	// &__label {
-	// 	display: block;
-	// 	margin-bottom: 0.3rem;
-	// }
-
 	&__input,
 	&__btn {
-		// display: block;
 		height: 2.4rem;
-		width: 100%;
-		overflow: hidden;
-		line-height: 1.25rem;
-		padding: 0.5rem 1rem;
-		border: transparent;
 		border-radius: 3px;
-		font: $default-font;
-	}
-
-	&__btn {
-		color: #fff;
-		background: cadetblue;
-	}
-
-	input[type='date'] {
-		max-width: 100%;
-		overflow: hidden;
-
-		&:before {
-			content: attr(placeholder) !important;
-			color: #aaa;
-			margin-right: 0.5em;
-		}
-		&:focus {
-			&:before {
-				content: '';
-			}
-		}
-		&:valid {
-			&:before {
-				content: '';
-			}
-		}
-	}
-
-	::-webkit-input-placeholder {
-		/* Edge */
-		color: #aaa;
-	}
-
-	:-ms-input-placeholder {
-		/* Internet Explorer 10-11 */
-		color: #aaa;
-	}
-
-	::placeholder {
-		color: #aaa;
 	}
 }

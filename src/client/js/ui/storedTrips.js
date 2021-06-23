@@ -6,13 +6,14 @@ class StoredTrips extends Base {
 
 	// Render localStrorage-stored trips on load
 	addHandlerRenderSavedTrip(handler) {
+		document.querySelector('.trips').style.opacity = 1;
 		window.addEventListener('load', handler);
 	}
 
 	// Delete user-clicked trip from DOM
 	addHandlerDeleteTrip(handler) {
 		this._parentEl.addEventListener('click', e => {
-			const deleteBtn = e.target.closest('.negative');
+			const deleteBtn = e.target.closest('.trips__btn');
 			if (!deleteBtn) return;
 
 			const deleteEl = deleteBtn.parentNode.parentNode;

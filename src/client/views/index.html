@@ -4,37 +4,42 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css" />
 	<title>tripplanner</title>
-	<link
-		href="https://fonts.googleapis.com/css2?&family=Roboto:wght@300;500;700&family=Roboto+Slab:wght@300;400;700;800&display=swap"
-		rel="stylesheet">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
 	<!-- TODO delete fontawesome after applying other icons -->
 	<script src="https://kit.fontawesome.com/1aac26dbd0.js" crossorigin="anonymous"></script>
 </head>
 
 <body>
 	<div class="container">
-		<!-- maybe delete? -->
 		<header>
-			<nav class="hnav">tripplanner</nav>
+			<nav class="hnav">
+				<ul class="hnav__list">
+					<li></li>
+					<li>
+						<h1 class="hnav__header">tripplanner</h1>
+					</li>
+					<li>
+						<a href="#trips" class="hnav__link">
+							<i class="fas fa-heart"></i>
+						</a>
+					</li>
+				</ul>
+			</nav>
 		</header>
 
 		<main>
 			<section class="plan">
-				<h2>Your journey begins here</h2>
+				<h2 class="plan__header">Let's Plan Your Next Adventure</h2>
 				<form class="plan__form">
 					<div class="plan__fields">
 						<div class="plan__field-01">
-							<!-- <label for="city" class="plan__label">City</label> -->
 							<input id="city" type="text" class="plan__input" name="city" placeholder="Where to (e.g. Tokyo)" required>
 						</div>
 						<div class="plan__field-02">
-							<!-- <label for="start" class="plan__label">Start</label> -->
 							<input type="date" id="start" class="plan__input" name="start" placeholder="Start" required>
 						</div>
 						<div class="plan__field-03">
-							<!-- <label for="end" class="plan__label">End</label> -->
 							<input type="date" id="end" class="plan__input" name="end" placeholder="End" required>
 						</div>
 						<div class="plan__field-04">
@@ -43,7 +48,7 @@
 					</div>
 				</form>
 			</section>
-			<section class="trips">
+			<section class="trips" id="trips">
 				<div class="trips__message"></div>
 				<ul class="trips__list"></ul>
 			</section>
@@ -52,15 +57,12 @@
 		<footer>
 			<nav class="fnav">
 				<ul>
-					<li><a class="link link--sns" href="mailto:emiri.begic@gmail.com"><i class="fas fa-envelope-square"></i></a>
+					<li><a href="mailto:emiri.begic@gmail.com"><i class="fas fa-envelope-square"></i></a>
 					</li>
-					<li><a class="link link--sns" href="https://github.com/emiribegic" target="_blank"><i
-								class="fab fa-github-square"></i></a>
+					<li><a href="https://github.com/emiribegic" target="_blank"><i class="fab fa-github-square"></i></a>
 					</li>
-					<li><a class="link link--sns" href="https://www.linkedin.com/in/emiribegic" target="_blank"><i
-								class="fab fa-linkedin"></i></a></li>
-					<li><a class="link link--sns" href="https://twitter.com/EmiliaLala6" target="_blank"><i
-								class="fab fa-twitter-square"></i></a></li>
+					<li><a href="https://www.linkedin.com/in/emiribegic" target="_blank"><i class="fab fa-linkedin"></i></a></li>
+					<li><a href="https://twitter.com/EmiliaLala6" target="_blank"><i class="fab fa-twitter-square"></i></a></li>
 				</ul>
 				<div class="copyright">© 2021</div>
 			</nav>

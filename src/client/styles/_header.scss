@@ -1,10 +1,28 @@
 .hnav {
-	height: 10vh;
-}
+	padding: 0 1rem;
+	padding-left: 2.5rem;
 
-// h1 {
-// 	text-align: center;
-// 	font: $header-font;
-// 	text-decoration: underline overline $key-color;
-// 	margin: 1rem;
-// }
+	&__list {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		height: 10vh;
+	}
+
+	&__header {
+		font: $nav-font;
+	}
+
+	&__link {
+		font-size: 1.5rem;
+		color: $heart;
+
+		&:hover {
+			color: $heart-hover;
+		}
+
+		&:visited {
+			text-decoration: none;
+		}
+	}
+}

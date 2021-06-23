@@ -31,6 +31,7 @@ class Form {
 	addHandler(handler) {
 		this._parentEl.addEventListener('submit', e => {
 			e.preventDefault();
+			document.querySelector('.trips').style.opacity = 1;
 			handler();
 		});
 	}

@@ -24,9 +24,9 @@ class Message {
 		this._parentEl.insertAdjacentHTML('afterbegin', markup);
 	}
 
-	renderError(message = this._errorMessage) {
+	renderError(msg = this._errorMessage) {
 		const markup = `
-        <span class="trips__error">${message}</span>
+			<span class="trips__error">${msg}</span>
       `;
 		this._clear();
 		this._parentEl.insertAdjacentHTML('afterbegin', markup);

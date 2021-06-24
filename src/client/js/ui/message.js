@@ -25,7 +25,7 @@ class Message {
 
 	renderSpinner() {
 		const markup = `
-	  <i class="notched circle big loading icon"></i>
+	  	<i class="fas fa-circle-notch fa-spin trips__spinner"></i>
 		`;
 		this._clearUpdate();
 		this._updateEl.insertAdjacentHTML('afterbegin', markup);

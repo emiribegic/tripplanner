@@ -1,5 +1,6 @@
 import 'regenerator-runtime/runtime';
 import * as model from './model';
+import SmoothScroll from './ui/smoothScroll';
 import Form from './ui/form';
 import Message from './ui/message';
 import Trip from './ui/trip';
@@ -52,6 +53,8 @@ const controlDeleteTrip = id => {
 };
 
 export const init = () => {
+	SmoothScroll.addHandlerScrollToTrips();
+	SmoothScroll.addHandlerScrollToTop();
 	StoredTrips.addHandlerRenderSavedTrip(controlSavedTrip);
 	Form.addHandler(controlTrip);
 	StoredTrips.addHandlerDeleteTrip(controlDeleteTrip);

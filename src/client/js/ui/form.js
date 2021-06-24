@@ -31,7 +31,13 @@ class Form {
 	addHandler(handler) {
 		this._parentEl.addEventListener('submit', e => {
 			e.preventDefault();
-			document.querySelector('.trips').style.opacity = 1;
+			const id = e.target
+				.querySelector('.plan__link')
+				.getAttribute('href');
+			document.querySelector(id).scrollIntoView({
+				behavior: 'smooth',
+			});
+
 			handler();
 		});
 	}

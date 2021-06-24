@@ -6,7 +6,6 @@ class StoredTrips extends Base {
 
 	// Render localStrorage-stored trips on load
 	addHandlerRenderSavedTrip(handler) {
-		document.querySelector('.trips').style.opacity = 1;
 		window.addEventListener('load', handler);
 	}
 

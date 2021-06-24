@@ -7,6 +7,8 @@ import StoredTrips from './ui/storedTrips';
 
 const controlTrip = async () => {
 	try {
+		Message.renderNumOfTrips(model.state.savedTrip.length);
+
 		// 1 Get user input
 		const inputData = Form.getInput();
 		const { input, start, end } = inputData;
@@ -27,6 +29,7 @@ const controlTrip = async () => {
 
 		// 5 Render trip
 		Message.renderAddMsg();
+		Message.renderNumOfTrips(model.state.savedTrip.length);
 		Trip.render(model.state.trip);
 	} catch (err) {
 		Message.renderError();
@@ -35,6 +38,8 @@ const controlTrip = async () => {
 };
 
 const controlSavedTrip = () => {
+	Message.renderNumOfTrips(model.state.savedTrip.length);
+
 	// Add searched-trip to savedTrip array and save this array in local storage
 	if (model.state.savedTrip.length > 0)
 		StoredTrips.render(model.state.savedTrip);
@@ -42,6 +47,8 @@ const controlSavedTrip = () => {
 
 const controlDeleteTrip = id => {
 	model.deleteTrip(id);
+	Message.renderNumOfTrips(model.state.savedTrip.length);
+	Message.renderDeleteMsg();
 };
 
 export const init = () => {

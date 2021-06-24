@@ -1,7 +1,6 @@
 // TODO ok but need to refactor later (21. jun)
 
 .trips {
-	opacity: 0;
 	padding: $pad-default;
 	padding-bottom: 10vh;
 	background: #fafafa;
@@ -19,11 +18,36 @@
 	&__message {
 		height: 10vh;
 		display: flex;
-		align-items: center;
+		flex-direction: column;
+		justify-content: center;
+	}
 
-		.loading {
-			width: 100%;
-			margin: 0 auto;
+	&__update {
+		display: block;
+		text-align: center;
+		margin-bottom: 1rem;
+	}
+
+	&__status {
+		display: block;
+	}
+
+	&__added,
+	&__deleted {
+		animation: fadeIn ease 1000ms;
+		transition: opacity 0.3s ease-in-out;
+
+		&.disappear {
+			opacity: 0;
+		}
+	}
+
+	@keyframes fadeIn {
+		0% {
+			opacity: 0;
+		}
+		100% {
+			opacity: 1;
 		}
 	}
 

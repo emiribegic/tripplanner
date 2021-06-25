@@ -56,9 +56,10 @@ ul {
 	list-style: none;
 }
 
-a {
+.link {
 	color: $bt-color;
 	text-decoration: none;
+	transition: 0.3s;
 
 	&:hover {
 		color: $bt-hover-color;

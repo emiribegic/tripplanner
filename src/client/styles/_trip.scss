@@ -1,16 +1,15 @@
 .trips {
+	height: 84vh;
+	margin-top: 1vh;
 	padding: $pad-default;
-	padding-bottom: 10vh;
-	background: #fafafa;
+	background: #fff;
 
 	@media only screen and (min-width: $bp-small) {
 		padding: $pad-small;
-		padding-bottom: 10vh;
 	}
 
 	@media only screen and (min-width: $bp-medium) {
 		padding: $pad-medium;
-		padding-bottom: 10vh;
 	}
 
 	&__message {

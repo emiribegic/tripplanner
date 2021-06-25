@@ -4,9 +4,9 @@ const HtmlWebPackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
-const CopyPlugin = require('copy-webpack-plugin'); // Configure webpack to copy all img resources to the dist folder
+const CopyPlugin = require('copy-webpack-plugin');
 
-// const WorkboxPlugin = require('workbox-webpack-plugin');
+const WorkboxPlugin = require('workbox-webpack-plugin');
 
 module.exports = {
 	mode: 'production',
@@ -37,9 +37,7 @@ module.exports = {
 	},
 	plugins: [
 		new HtmlWebPackPlugin({
-			// Refer below index.html
 			template: './src/client/views/index.html',
-			// and create a new index.html in dist folder
 			filename: './index.html',
 		}),
 		new CopyPlugin({
@@ -47,6 +45,6 @@ module.exports = {
 		}),
 		new MiniCssExtractPlugin({ filename: '[name].css' }),
 
-		// new WorkboxPlugin.GenerateSW(),
+		new WorkboxPlugin.GenerateSW(),
 	],
 };

@@ -17,7 +17,7 @@ const controlTrip = async () => {
 		// 2 Validate date
 		const validDate = model.validateDate(start, end);
 		if (!validDate) {
-			Form.alertError();
+			Message.renderErrorDate();
 			return;
 		}
 
@@ -33,7 +33,7 @@ const controlTrip = async () => {
 		Message.renderNumOfTrips(model.state.savedTrip.length);
 		Trip.render(model.state.trip);
 	} catch (err) {
-		Message.renderError();
+		Message.renderErrorCity();
 		console.error(err);
 	}
 };

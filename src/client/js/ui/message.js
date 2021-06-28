@@ -3,7 +3,9 @@ class Message {
 	_statusEl = document.querySelector('.trips__status');
 	_addMessage = 'New trip added';
 	_deleteMessage = 'Trip deleted';
-	_errorMessage = `Oops, we could not find the city you entered, please try again!`;
+	_errorMsgCity =
+		'Oops, we could not find the city you entered, please try again!';
+	_errorMsgDate = 'Invalid date, please try again!';
 
 	_clearUpdate() {
 		this._updateEl.innerHTML = '';
@@ -51,7 +53,15 @@ class Message {
 		this.fadeText(el);
 	}
 
-	renderError(msg = this._errorMessage) {
+	renderErrorCity(msg = this._errorMsgCity) {
+		const markup = `
+			<span class="trips__error">${msg}</span>
+      `;
+		this._clearUpdate();
+		this._updateEl.insertAdjacentHTML('afterbegin', markup);
+	}
+
+	renderErrorDate(msg = this._errorMsgDate) {
 		const markup = `
 			<span class="trips__error">${msg}</span>
       `;

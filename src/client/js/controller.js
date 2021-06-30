@@ -1,4 +1,3 @@
-import 'regenerator-runtime/runtime';
 import * as model from './model';
 import SmoothScroll from './ui/smoothScroll';
 import Form from './ui/form';

@@ -1,9 +1,9 @@
 import * as model from './model';
-import SmoothScroll from './ui/smoothScroll';
-import Form from './ui/form';
-import Message from './ui/message';
-import Trip from './ui/trip';
-import StoredTrips from './ui/storedTrips';
+import SmoothScroll from './view/smoothScroll';
+import Form from './view/form';
+import Message from './view/message';
+import Trip from './view/trip';
+import StoredTrips from './view/storedTrips';
 
 const controlTrip = async () => {
 	try {

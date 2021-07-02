@@ -14,6 +14,8 @@ By clicking "DELETE", trips can be deleted.
 -   JavaScript
 -   Node.js / Express.js
 -   Day.js
+-   nanoid
+-   axios
 -   Webpack
 -   HTML / SCSS
 -   Jest
@@ -22,19 +24,21 @@ By clicking "DELETE", trips can be deleted.
 -   [GeoNames API](http://www.geonames.org/)
 -   [OpenWeather](https://openweathermap.org/)
 -   [pixabay](https://pixabay.com/api/docs/#)
--   nanoid
--   axios
 
-## Installation
+## Getting Started
 
 ### Prerequisites
 
-**Make sure Node and npm are installed from the terminal**
+Make sure Node and npm are installed from the terminal
 
 ```bash
 $ node -v
 $ npm -v
 ```
+
+---
+
+### Installation
 
 1. Fork this repo into your own GitHub
 
@@ -57,7 +61,7 @@ $ cd tripplanner
 $ npm install
 ```
 
-4. **(Optional)** Change the port number for DevServer and its proxy setting
+4. **_(Optional)_** Change the port number for DevServer and its proxy setting
 
 ```javascript
 // In webpack.dev.js
@@ -73,7 +77,7 @@ module.exports = {
 	},
 ```
 
-**If you change proxy setting, make sure to change the port in src/server/index.js**
+**_If you change proxy setting, make sure to change the port in src/server/index.js_**
 
 ```javascript
 // In index.js
@@ -107,7 +111,8 @@ const port = process.env.PORT || 8081; // Change if needed
 | `npm run dev`  | Run DevServer |
 
 8. Run the app in development mode at http://localhost:8000/, in production mode at http://localhost:8081/
-   **Port will be varied if you change it at step 4**
+   <br>
+   **_Port will be varied if you change it at step 4_**
 
 ## Error handling
 

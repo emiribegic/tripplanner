@@ -7,6 +7,7 @@ For demo, please visit at https://reiseplaner-app.herokuapp.com/
 
 Tripplanner is a simple single-page web application that allows users to control thier trip plans.
 Once a trip is added, it is shown as a card with a destination image and 3-day weather forecast. This trip data is automatically stored in the browser (LocalStorage) so trip cards will be available even after the browser restarts.
+<br>
 By clicking "DELETE", trips can be deleted.
 
 ## Technologies Used
@@ -116,26 +117,25 @@ const port = process.env.PORT || 8081; // Change if needed
 
 ## Error handling
 
--   Set all the input fields required
+-   Set all the input fields required.
 -   If a user selects invalid date (either select the start date past or the end date earlier than the start date), the user will be informed by the error message to verify the date.
 -   If no cities / countries are returned for user-entered destionation by the Geolocation API, the user will be informed by error message to verify the destination.
--   If no images are found for user-entered city by pixabay, search images with country name instead
+-   If no images are found for user-entered city by pixabay, search images with country name instead.
 
 ## Refactoring
 
 This is a rewrite of my final project at [Udacity](https://www.udacity.com/course/front-end-web-developer-nanodegree--nd0011) Front End Web Developer Nanodegree program.
 
--   Use MVC architecture pattern for maintainablity and expandability
+-   Use MVC architecture pattern for maintainablity and expandability.
 -   Store all the data about the app in the state so if:
-    -   some data changes in the state, UI reflects it
-    -   something changes in the UI, tthe state reflects it
--   Use localStorage to store trips in the browser
--   Create a parent class to reuse methods for the UI
--   Use dayjs library for date formatting and manipulation
+    -   some data changes in the state, UI reflects it.
+    -   something changes in the UI, tthe state reflects it.
+-   Use localStorage to store trips in the browser.
+-   Create a parent class to reuse methods for the UI.
+-   Use dayjs library for date formatting and manipulation.
 
 ## Future refactor needed
 
--   Sort trips with date
--   Sort trips with destination name
--   Pop up confirmation when users click "DELETE" button
--   Error handling with Network Error
+-   Sort trips with date / destination name.
+-   Pop up confirmation when users click "DELETE" button.
+-   Handle error when Network Error.

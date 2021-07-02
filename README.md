@@ -31,7 +31,7 @@ By clicking "DELETE", trips can be deleted.
 
 **Make sure Node and npm are installed from the terminal**
 
-```
+```bash
 $ node -v
 $ npm -v
 ```
@@ -40,7 +40,7 @@ $ npm -v
 
 2. Clone the repo to your local machine
 
-```
+```bash
 # Change to the desired directory
 $ cd <desired-directory>
 
@@ -53,7 +53,7 @@ $ cd tripplanner
 
 3. Install dependencies
 
-```
+```bash
 $ npm install
 ```
 
@@ -88,12 +88,12 @@ const port = process.env.PORT || 8081; // Change if needed
 
 6. Configure environment variables using dotenv package
     1. Install the dotenv package
-    ```
+    ```bash
     npm install dotenv
     ```
     2. Create a new `.env` file in the root of your project
     3. Fill the `.env` file with your API keys like this:
-    ```
+    ```bash
     API_KEY=**************************
     username=**************************
     apikey=**************************

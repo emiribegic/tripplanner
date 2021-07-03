@@ -5,7 +5,7 @@ For demo, please visit at https://reiseplaner-app.herokuapp.com/
 
 ## Description
 
-Tripplanner is a simple single-page web application that allows users to control thier trip plans.
+Tripplanner is a simple single-page web application that allows users to control their trip plans.
 Once a trip is added, it is shown as a card with a destination image and 3-day weather forecast. This trip data is automatically stored in the browser (LocalStorage) so trip cards will be available even after the browser restarts.
 <br>
 By clicking "DELETE", trips can be deleted.

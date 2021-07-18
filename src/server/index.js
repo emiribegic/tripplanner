@@ -1,10 +1,8 @@
 require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
-const app = express();
-// const port = process.env.PORT || 8081;
-// const { getData } = require('./getData');
 const getData = require('./getData');
+const app = express();
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
@@ -21,7 +19,5 @@ app.post('/trip', async (req, res) => {
 		console.error(err);
 	}
 });
-
-// app.listen(port, () => console.log(`Travel app listening on port ${port}`));
 
 module.exports = app;

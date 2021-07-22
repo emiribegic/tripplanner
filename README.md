@@ -23,7 +23,7 @@ By clicking "DELETE", trips can be deleted.
 -   supertest
 -   Workbox
 -   [GeoNames API](http://www.geonames.org/)
--   [OpenWeather](https://openweathermap.org/)
+-   [Weatherbit.io](https://www.weatherbit.io/)
 -   [pixabay](https://pixabay.com/api/docs/#)
 
 ## Getting Started
@@ -88,7 +88,7 @@ const port = process.env.PORT || 8081; // Change if needed
 5. Sign up for API keys at:
 
 -   [GeoNames API](http://www.geonames.org/)
--   [OpenWeather](https://openweathermap.org/)
+-   [Weatherbit.io](https://www.weatherbit.io/)
 -   [pixabay](https://pixabay.com/api/docs/#)
 
 6. Configure environment variables using dotenv package

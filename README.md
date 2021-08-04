@@ -103,17 +103,16 @@ const port = process.env.PORT || 8081; // Change if needed
     username=**************************
     apikey=**************************
     ```
-7. Start the project
+7. Run the app in development mode at http://localhost:8000/, in production mode at http://localhost:8081/
+   <br>
+   **_Port will be varied if you change it at step 4_**
+   <br>
 
 |    Command     |    Action     |
 | :------------: | :-----------: |
 | `npm run prod` | Build project |
 |  `npm start`   |  Run project  |
 | `npm run dev`  | Run DevServer |
-
-8. Run the app in development mode at http://localhost:8000/, in production mode at http://localhost:8081/
-   <br>
-   **_Port will be varied if you change it at step 4_**
 
 ## Error handling
 

@@ -107,12 +107,11 @@ const port = process.env.PORT || 8081; // Change if needed
    <br>
    **_Port will be varied if you change it at step 4_**
    <br>
-
-|    Command     |    Action     |
-| :------------: | :-----------: |
-| `npm run prod` | Build project |
-|  `npm start`   |  Run project  |
-| `npm run dev`  | Run DevServer |
+   | Command | Action |
+   | :------------: | :-----------: |
+   | `npm run prod` | Build project |
+   | `npm start` | Run project |
+   | `npm run dev` | Run DevServer |
 
 ## Error handling
 

@@ -129,7 +129,7 @@ This is a rewrite of my final project at [Udacity](https://www.udacity.com/cours
 -   Use MVC architecture pattern for maintainablity and expandability.
 -   Store all the data about the app in the state so if:
     -   some data changes in the state, UI reflects it.
-    -   something changes in the UI, tthe state reflects it.
+    -   something changes in the UI, the state reflects it.
 -   Use localStorage to store trips in the browser.
 -   Create a parent class to reuse methods for the UI.
 -   Use dayjs library for date formatting and manipulation.
